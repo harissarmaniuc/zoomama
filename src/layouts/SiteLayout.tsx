@@ -2,19 +2,20 @@ import type { ReactNode } from 'react';
 
 type SiteLayoutProps = {
   children: ReactNode;
-  activePath: '/' | '/overview' | '/servicii' | '/tarife' | '/echipa' | '/contact';
+  activePath: '/' | '/overview' | '/servicii' | '/tarife' | '/echipa' | '/o-klinike' | '/contact';
   title: string;
   subtitle: string;
   kicker?: string;
 };
 
 const navItems = [
-  { label: 'Overview', href: '/overview' },
-  { label: 'Servicii', href: '/servicii' },
-  { label: 'Tarife', href: '/tarife' },
-  { label: 'Echipa', href: '/echipa' },
+  { label: 'Главная', href: '/' },
+  { label: 'О клинике', href: '/o-klinike' },
+  { label: 'Услуги', href: '/servicii' },
+  { label: 'Тарифы', href: '/tarife' },
+  { label: 'Команда', href: '/echipa' },
   { label: 'Опыт', href: '/opyt-i-obrazovanie' },
-  { label: 'Contact', href: '/contact' }
+  { label: 'Контакты', href: '/contact' }
 ] as const;
 
 function SiteLayout({ children, activePath, title, subtitle, kicker }: SiteLayoutProps) {
@@ -22,9 +23,11 @@ function SiteLayout({ children, activePath, title, subtitle, kicker }: SiteLayou
     <div className="min-h-screen">
       <div className="border-b border-pine/10 bg-white/60 backdrop-blur">
         <div className="container-shell flex flex-col gap-2 py-3 text-sm text-pine sm:flex-row sm:items-center sm:justify-between">
-          <p className="tracking-wide">Demo bazat pe analiza homepage-ului Zoomama (continut sintetizat)</p>
+          <p className="tracking-wide">
+            Демо на основе анализа главной страницы Zoomama (синтезированный контент)
+          </p>
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs uppercase tracking-[0.18em]">
-            <span>Chisinau • 24/7</span>
+            <span>Кишинев • 24/7</span>
             <span className="hidden sm:inline text-brass">•</span>
             <a className="hover:text-ink" href="tel:+37368178419">
               +373 68 17 84 19
@@ -62,15 +65,14 @@ function SiteLayout({ children, activePath, title, subtitle, kicker }: SiteLayou
                 ZooMama
               </span>
               <span className="block text-[10px] uppercase tracking-[0.35em] text-pine/70">
-                Demo React / Tailwind
+                Демо React / Tailwind
               </span>
             </span>
           </a>
 
-          <nav aria-label="Navigatie principala" className="hidden items-center gap-6 md:flex">
+          <nav aria-label="Основная навигация" className="hidden items-center gap-6 md:flex">
             {navItems.map((item) => {
-              const isActive =
-                activePath === item.href || (activePath === '/' && item.href === '/overview');
+              const isActive = activePath === item.href;
 
               return (
                 <a
@@ -88,7 +90,7 @@ function SiteLayout({ children, activePath, title, subtitle, kicker }: SiteLayou
           </nav>
 
           <a href="/opyt-i-obrazovanie" className="btn-primary hidden sm:inline-flex">
-            Profil medic
+            Профиль врача
           </a>
         </div>
       </header>
@@ -108,13 +110,13 @@ function SiteLayout({ children, activePath, title, subtitle, kicker }: SiteLayou
       <footer className="mt-8 border-t border-pine/10 bg-white/50 py-8">
         <div className="container-shell flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="font-serifDisplay text-2xl text-pine">ZooMama Demo</p>
+            <p className="font-serifDisplay text-2xl text-pine">ZooMama • Демо</p>
             <p className="text-xs uppercase tracking-[0.2em] text-pine/70">
-              React + TypeScript + Tailwind • continut sintetizat din homepage
+              React + TypeScript + Tailwind • синтезированный контент с главной страницы
             </p>
           </div>
           <div className="text-sm text-ink/70">
-            Analiza efectuata pe homepage zoomama.md (sitemap lastmod: 2026-02-08)
+            Анализ выполнен по главной странице `zoomama.md` (sitemap lastmod: 2026-02-08)
           </div>
         </div>
       </footer>

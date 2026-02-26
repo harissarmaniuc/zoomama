@@ -1,6 +1,6 @@
+import AboutClinicPage from '../pages/AboutClinicPage';
 import ExperienceEducationPage from '../pages/ExperienceEducationPage';
 import ContactPage from '../pages/ContactPage';
-import HomePage from '../pages/HomePage';
 import OverviewPage from '../pages/OverviewPage';
 import PricingPage from '../pages/PricingPage';
 import ServicesPage from '../pages/ServicesPage';
@@ -13,8 +13,12 @@ function AppRouter() {
     return <ExperienceEducationPage />;
   }
 
-  if (normalizedPath === '/overview') {
+  if (normalizedPath === '/' || normalizedPath === '/overview') {
     return <OverviewPage />;
+  }
+
+  if (normalizedPath === '/o-klinike' || normalizedPath === '/despre-noi') {
+    return <AboutClinicPage />;
   }
 
   if (normalizedPath === '/servicii') {
@@ -33,7 +37,7 @@ function AppRouter() {
     return <ContactPage />;
   }
 
-  return <HomePage />;
+  return <OverviewPage />;
 }
 
 export default AppRouter;
