@@ -2,7 +2,14 @@ import type { ReactNode } from 'react';
 
 type SiteLayoutProps = {
   children: ReactNode;
-  activePath: '/' | '/overview' | '/servicii' | '/tarife' | '/echipa' | '/o-klinike' | '/contact';
+  activePath:
+    | '/'
+    | '/overview'
+    | '/o-klinike'
+    | '/uslugi'
+    | '/tarify'
+    | '/komanda'
+    | '/kontakty';
   title: string;
   subtitle: string;
   kicker?: string;
@@ -11,11 +18,11 @@ type SiteLayoutProps = {
 const navItems = [
   { label: 'Главная', href: '/' },
   { label: 'О клинике', href: '/o-klinike' },
-  { label: 'Услуги', href: '/servicii' },
-  { label: 'Тарифы', href: '/tarife' },
-  { label: 'Команда', href: '/echipa' },
+  { label: 'Услуги', href: '/uslugi' },
+  { label: 'Тарифы', href: '/tarify' },
+  { label: 'Команда', href: '/komanda' },
   { label: 'Опыт', href: '/opyt-i-obrazovanie' },
-  { label: 'Контакты', href: '/contact' }
+  { label: 'Контакты', href: '/kontakty' }
 ] as const;
 
 function SiteLayout({ children, activePath, title, subtitle, kicker }: SiteLayoutProps) {
@@ -23,9 +30,7 @@ function SiteLayout({ children, activePath, title, subtitle, kicker }: SiteLayou
     <div className="min-h-screen">
       <div className="border-b border-pine/10 bg-white/60 backdrop-blur">
         <div className="container-shell flex flex-col gap-2 py-3 text-sm text-pine sm:flex-row sm:items-center sm:justify-between">
-          <p className="tracking-wide">
-            Демо на основе анализа главной страницы Zoomama (синтезированный контент)
-          </p>
+          <p className="tracking-wide">Ветеринарная клиника и госпиталь ZooMama</p>
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs uppercase tracking-[0.18em]">
             <span>Кишинев • 24/7</span>
             <span className="hidden sm:inline text-brass">•</span>
@@ -65,7 +70,7 @@ function SiteLayout({ children, activePath, title, subtitle, kicker }: SiteLayou
                 ZooMama
               </span>
               <span className="block text-[10px] uppercase tracking-[0.35em] text-pine/70">
-                Демо React / Tailwind
+                Ветеринарная клиника 24/7
               </span>
             </span>
           </a>
@@ -110,13 +115,13 @@ function SiteLayout({ children, activePath, title, subtitle, kicker }: SiteLayou
       <footer className="mt-8 border-t border-pine/10 bg-white/50 py-8">
         <div className="container-shell flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="font-serifDisplay text-2xl text-pine">ZooMama • Демо</p>
+            <p className="font-serifDisplay text-2xl text-pine">ZooMama</p>
             <p className="text-xs uppercase tracking-[0.2em] text-pine/70">
-              React + TypeScript + Tailwind • синтезированный контент с главной страницы
+              Ветеринарная клиника • Кишинев • 24/7
             </p>
           </div>
           <div className="text-sm text-ink/70">
-            Анализ выполнен по главной странице `zoomama.md` (sitemap lastmod: 2026-02-08)
+            ул. А. Маринеску 11/3 • +373 68 17 84 19 • Zoomama
           </div>
         </div>
       </footer>

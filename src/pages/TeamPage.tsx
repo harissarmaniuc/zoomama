@@ -9,10 +9,10 @@ function TeamPage() {
 
   return (
     <SiteLayout
-      activePath="/echipa"
+      activePath="/komanda"
       kicker="Команда"
       title="Медицинская и административная команда (выборка)"
-      subtitle="Отдельная страница для команды, упомянутой на главной странице, в более удобном и структурированном формате."
+      subtitle="Врачи, ассистенты и административный персонал, представленные в структуре клиники."
     >
       <section className="py-10 sm:py-14">
         <div className="container-shell grid gap-5 xl:grid-cols-[0.95fr_1.05fr]">

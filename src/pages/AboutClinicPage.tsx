@@ -15,7 +15,7 @@ function AboutClinicPage() {
       activePath="/o-klinike"
       kicker="О клинике"
       title="О клинике Zoomama"
-      subtitle="Отдельная страница с описанием клиники и ее инфраструктуры в формальном стиле."
+      subtitle="История клиники, ключевые направления развития и основные инфраструктурные преимущества."
     >
       <section className="py-10 sm:py-14">
         <div className="container-shell grid gap-5 xl:grid-cols-[1.05fr_0.95fr]">
@@ -26,7 +26,7 @@ function AboutClinicPage() {
                 Современный ветеринарный госпиталь с круглосуточной работой
               </h2>
               <p className="mt-4 text-sm leading-7 text-white/85 sm:text-base">
-                Раздел оформлен как самостоятельная страница «О нас / О клинике» для сайта.
+                Диагностика, лаборатория, реанимация и хирургия в единой клинической системе.
               </p>
             </div>
 
@@ -69,13 +69,13 @@ function AboutClinicPage() {
                 <a href="/" className="btn-secondary">
                   Главная
                 </a>
-                <a href="/servicii" className="btn-secondary">
+                <a href="/uslugi" className="btn-secondary">
                   Услуги
                 </a>
-                <a href="/tarife" className="btn-secondary">
+                <a href="/tarify" className="btn-secondary">
                   Тарифы
                 </a>
-                <a href="/contact" className="btn-secondary">
+                <a href="/kontakty" className="btn-secondary">
                   Контакты
                 </a>
               </div>

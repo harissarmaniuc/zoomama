@@ -4,10 +4,10 @@ import { representativePrices } from './siteData';
 function PricingPage() {
   return (
     <SiteLayout
-      activePath="/tarife"
+      activePath="/tarify"
       kicker="Тарифы"
       title="Ориентировочные цены (репрезентативная выборка)"
-      subtitle="Примеры цен, собранные с главной страницы. Для production-версии лучше подключить обновляемый источник данных."
+      subtitle="Базовые ориентиры по стоимости консультаций, диагностики, лаборатории и стационара."
     >
       <section className="py-10 sm:py-14">
         <div className="container-shell grid gap-5 xl:grid-cols-[1.1fr_0.9fr]">
@@ -38,9 +38,9 @@ function PricingPage() {
               <p className="text-xs uppercase tracking-[0.2em] text-pine/70">Примечания</p>
               <div className="mt-4 grid gap-3">
                 {[
-                  'Цены представлены как ориентировочная выборка, а не полный прайс-лист.',
-                  'Часть услуг тарифицируется в зависимости от сложности, веса пациента или длительности госпитализации.',
-                  'Для реального сайта стоит добавить дату последнего обновления прайса.'
+                  'Цены представлены как ориентировочные и требуют подтверждения при записи.',
+                  'Стоимость некоторых услуг зависит от сложности случая, веса пациента и длительности госпитализации.',
+                  'Рекомендуется регулярно обновлять прайс и указывать дату последней актуализации.'
                 ].map((note) => (
                   <div key={note} className="rounded-xl border border-pine/10 bg-white p-4">
                     <p className="text-sm leading-6 text-ink/80">{note}</p>
@@ -52,13 +52,13 @@ function PricingPage() {
             <div className="panel p-6 sm:p-8">
               <p className="text-xs uppercase tracking-[0.2em] text-pine/70">Быстрая навигация</p>
               <div className="mt-4 flex flex-wrap gap-2">
-                <a href="/servicii" className="btn-secondary">
+                <a href="/uslugi" className="btn-secondary">
                   Услуги
                 </a>
-                <a href="/contact" className="btn-secondary">
+                <a href="/kontakty" className="btn-secondary">
                   Контакты
                 </a>
-                <a href="/echipa" className="btn-secondary">
+                <a href="/komanda" className="btn-secondary">
                   Команда
                 </a>
               </div>

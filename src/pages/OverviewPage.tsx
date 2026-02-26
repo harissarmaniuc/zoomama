@@ -10,10 +10,10 @@ import {
 function OverviewPage() {
   return (
     <SiteLayout
-      activePath="/overview"
+      activePath="/"
       kicker="Главная"
-      title="Обзор клиники и ключевой информации с главной страницы Zoomama"
-      subtitle="Отдельная главная страница с быстрым доступом к контактам 24/7, направлениям работы, краткому описанию клиники и важным примечаниям."
+      title="Ветеринарная клиника ZooMama 24/7"
+      subtitle="Круглосуточная помощь, диагностика, лаборатория, хирургия и профильные специалисты для точной и своевременной помощи вашему питомцу."
     >
       <section className="py-10 sm:py-14">
         <div className="container-shell grid gap-5 lg:grid-cols-[1fr_1fr]">
@@ -56,11 +56,11 @@ function OverviewPage() {
             <div className="bg-gradient-to-br from-pine to-moss p-6 text-white sm:p-8">
               <p className="text-xs uppercase tracking-[0.2em] text-white/70">О клинике</p>
               <h2 className="mt-2 text-3xl text-white sm:text-4xl">
-                Краткое позиционирование клиники по материалам главной страницы
+                Краткое позиционирование клиники
               </h2>
               <p className="mt-4 max-w-2xl text-sm leading-7 text-white/85 sm:text-base">
-                На сайте клиника представлена как многопрофильный центр для мелких домашних
-                животных с акцентом на диагностику, терапию, хирургию и экстренную помощь.
+                Мы объединяем диагностику, терапию, хирургическое направление и интенсивную
+                терапию в одном госпитале, чтобы быстрее принимать клинические решения.
               </p>
             </div>
             <div className="grid gap-4 p-6 sm:grid-cols-2 sm:p-8">

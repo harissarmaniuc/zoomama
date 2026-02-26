@@ -4,10 +4,10 @@ import { serviceDomains } from './siteData';
 function ServicesPage() {
   return (
     <SiteLayout
-      activePath="/servicii"
+      activePath="/uslugi"
       kicker="Услуги"
       title="Категории услуг и медицинские направления"
-      subtitle="Отдельная страница услуг на основе категорий и специализаций, указанных на главной странице Zoomama."
+      subtitle="Терапия, диагностика, хирургия, кардиология, эндокринология и другие направления клиники."
     >
       <section className="py-10 sm:py-14">
         <div className="container-shell">

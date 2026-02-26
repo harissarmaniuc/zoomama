@@ -4,10 +4,10 @@ import { locationInfo, phoneContacts, socialLinks } from './siteData';
 function ContactPage() {
   return (
     <SiteLayout
-      activePath="/contact"
+      activePath="/kontakty"
       kicker="Контакты"
       title="Контакты, адрес и каналы связи"
-      subtitle="Отдельная страница для звонка, адреса, соцсетей/мессенджеров и demo-формы обращения."
+      subtitle="Свяжитесь с клиникой по телефону, через мессенджеры или оставьте заявку через форму."
     >
       <section className="py-10 sm:py-14">
         <div className="container-shell grid gap-5 xl:grid-cols-[1fr_1fr]">
@@ -23,7 +23,7 @@ function ContactPage() {
               </div>
               <div className="mt-5 rounded-xl border border-brass/20 bg-linen/50 p-4">
                 <p className="text-sm leading-6 text-ink/80">
-                  На главной странице также указан второй корпус по адресу <strong>Paris 34/2</strong> с
+                  Также указан второй корпус по адресу <strong>Paris 34/2</strong> с
                   отдельным номером рецепции: <strong>069 03 66 47</strong>.
                 </p>
               </div>
@@ -57,7 +57,7 @@ function ContactPage() {
               <p className="text-xs uppercase tracking-[0.2em] text-pine/70">Онлайн и форма</p>
               <h2 className="mt-2 text-3xl">Мессенджеры и заявка на связь</h2>
               <p className="mt-3 text-sm leading-7 text-ink/75">
-                Публичные ссылки, найденные на главной странице, и демонстрационная форма для обращений.
+                Официальные каналы связи клиники и форма для отправки обращения.
               </p>
             </div>
 
@@ -127,7 +127,7 @@ function ContactPage() {
 
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <p className="text-xs leading-5 text-ink/60">
-                    Демонстрационная форма для быстрого контакта и первичного запроса.
+                    Форма для быстрой связи и первичного описания ситуации.
                   </p>
                   <button type="submit" className="btn-primary">
                     Отправить запрос

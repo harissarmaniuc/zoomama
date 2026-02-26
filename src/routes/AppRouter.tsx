@@ -21,19 +21,19 @@ function AppRouter() {
     return <AboutClinicPage />;
   }
 
-  if (normalizedPath === '/servicii') {
+  if (normalizedPath === '/uslugi' || normalizedPath === '/servicii') {
     return <ServicesPage />;
   }
 
-  if (normalizedPath === '/tarife') {
+  if (normalizedPath === '/tarify' || normalizedPath === '/tarife') {
     return <PricingPage />;
   }
 
-  if (normalizedPath === '/echipa') {
+  if (normalizedPath === '/komanda' || normalizedPath === '/echipa') {
     return <TeamPage />;
   }
 
-  if (normalizedPath === '/contact') {
+  if (normalizedPath === '/kontakty' || normalizedPath === '/contact') {
     return <ContactPage />;
   }
 
