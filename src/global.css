@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-parchment text-ink font-body antialiased;
+    background-image:
+      radial-gradient(circle at 18% 14%, rgba(171, 138, 76, 0.09) 0, transparent 44%),
+      radial-gradient(circle at 85% 12%, rgba(35, 67, 56, 0.08) 0, transparent 38%),
+      linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
+      repeating-linear-gradient(
+        0deg,
+        transparent 0,
+        transparent 23px,
+        rgba(33, 46, 40, 0.025) 24px
+      );
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-serifDisplay tracking-tight text-ink;
+  }
+
+  ::selection {
+    background: rgba(171, 138, 76, 0.28);
+    color: #1e2a24;
+  }
+}
+
+@layer components {
+  .container-shell {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-kicker {
+    @apply mb-3 inline-flex items-center gap-2 rounded-full border border-brass/30 bg-white/60 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-pine;
+  }
+
+  .ornament-line {
+    @apply relative h-px bg-gradient-to-r from-transparent via-brass/50 to-transparent;
+  }
+
+  .panel {
+    @apply rounded-2xl border border-pine/10 bg-white/70 shadow-panel backdrop-blur-sm;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full border border-pine bg-pine px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-moss focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine focus-visible:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full border border-pine/20 bg-white/70 px-5 py-2.5 text-sm font-semibold text-pine transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine focus-visible:ring-offset-2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

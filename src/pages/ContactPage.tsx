@@ -1,0 +1,145 @@
+import SiteLayout from '../layouts/SiteLayout';
+import { locationInfo, phoneContacts, socialLinks } from './HomePage';
+
+function ContactPage() {
+  return (
+    <SiteLayout
+      activePath="/contact"
+      kicker="Contact"
+      title="Contact, locatie si canale de comunicare"
+      subtitle="Pagina separata pentru apel rapid, adresa, social links si formular de contact demo."
+    >
+      <section className="py-10 sm:py-14">
+        <div className="container-shell grid gap-5 xl:grid-cols-[1fr_1fr]">
+          <div className="grid gap-5">
+            <div className="panel p-6 sm:p-8">
+              <p className="text-xs uppercase tracking-[0.2em] text-pine/70">Locatie si program</p>
+              <div className="mt-4 grid gap-3">
+                {locationInfo.map((line) => (
+                  <div key={line} className="rounded-xl border border-pine/10 bg-white p-4">
+                    <p className="text-sm leading-6 text-ink/80">{line}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-5 rounded-xl border border-brass/20 bg-linen/50 p-4">
+                <p className="text-sm leading-6 text-ink/80">
+                  Homepage-ul mentioneaza si al doilea corp la <strong>Paris 34/2</strong>, cu
+                  numar separat de receptie: <strong>069 03 66 47</strong>.
+                </p>
+              </div>
+            </div>
+
+            <div className="panel p-6 sm:p-8">
+              <p className="text-xs uppercase tracking-[0.2em] text-pine/70">Telefoane</p>
+              <div className="mt-4 grid gap-3">
+                {phoneContacts.map((contact) => (
+                  <a
+                    key={`${contact.label}-${contact.phone}`}
+                    href={`tel:+373${contact.phone.replace(/\s/g, '')}`}
+                    className="flex items-center justify-between gap-3 rounded-xl border border-pine/10 bg-white p-4 transition hover:bg-parchment/70"
+                  >
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.16em] text-pine/70">{contact.label}</p>
+                      <p className="mt-1 font-semibold text-pine">{contact.phone}</p>
+                      <p className="mt-1 text-xs text-ink/65">{contact.note}</p>
+                    </div>
+                    <span className="text-xs font-semibold uppercase tracking-[0.16em] text-pine/60">
+                      Apel
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="panel overflow-hidden">
+            <div className="border-b border-pine/10 bg-white/75 p-6">
+              <p className="text-xs uppercase tracking-[0.2em] text-pine/70">Online & formular</p>
+              <h2 className="mt-2 text-3xl">Mesagerie si cerere de contact</h2>
+              <p className="mt-3 text-sm leading-7 text-ink/75">
+                Linkuri publice identificate pe homepage si formular demonstrativ pentru solicitari.
+              </p>
+            </div>
+
+            <div className="grid gap-4 p-6 sm:p-7">
+              <div className="rounded-2xl border border-pine/10 bg-parchment/60 p-5">
+                <p className="text-xs uppercase tracking-[0.2em] text-pine/70">Social / mesagerie</p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {socialLinks.map((item) => (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="rounded-full border border-pine/15 bg-white px-3 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-pine transition hover:bg-linen"
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              <form className="grid gap-4" onSubmit={(event) => event.preventDefault()}>
+                <label className="grid gap-2">
+                  <span className="text-xs font-semibold uppercase tracking-[0.18em] text-pine/80">
+                    Nume
+                  </span>
+                  <input
+                    type="text"
+                    placeholder="Ex. Ana Popescu"
+                    className="rounded-xl border border-pine/15 bg-white px-4 py-3 text-sm outline-none placeholder:text-ink/35 focus:border-pine/35"
+                  />
+                </label>
+
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <label className="grid gap-2">
+                    <span className="text-xs font-semibold uppercase tracking-[0.18em] text-pine/80">
+                      Telefon
+                    </span>
+                    <input
+                      type="tel"
+                      placeholder="+373..."
+                      className="rounded-xl border border-pine/15 bg-white px-4 py-3 text-sm outline-none placeholder:text-ink/35 focus:border-pine/35"
+                    />
+                  </label>
+                  <label className="grid gap-2">
+                    <span className="text-xs font-semibold uppercase tracking-[0.18em] text-pine/80">
+                      Solicitare
+                    </span>
+                    <input
+                      type="text"
+                      placeholder="Consult / urgenta / analiza"
+                      className="rounded-xl border border-pine/15 bg-white px-4 py-3 text-sm outline-none placeholder:text-ink/35 focus:border-pine/35"
+                    />
+                  </label>
+                </div>
+
+                <label className="grid gap-2">
+                  <span className="text-xs font-semibold uppercase tracking-[0.18em] text-pine/80">
+                    Mesaj
+                  </span>
+                  <textarea
+                    rows={5}
+                    placeholder="Descrieti pe scurt cazul..."
+                    className="resize-none rounded-xl border border-pine/15 bg-white px-4 py-3 text-sm outline-none placeholder:text-ink/35 focus:border-pine/35"
+                  />
+                </label>
+
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                  <p className="text-xs leading-5 text-ink/60">
+                    Formular demo inspirat de nevoia de contact rapid si triaj.
+                  </p>
+                  <button type="submit" className="btn-primary">
+                    Trimite solicitarea
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </SiteLayout>
+  );
+}
+
+export default ContactPage;
