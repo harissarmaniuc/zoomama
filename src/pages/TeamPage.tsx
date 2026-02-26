@@ -1,5 +1,5 @@
 import SiteLayout from '../layouts/SiteLayout';
-import { teamMembers } from './HomePage';
+import { teamMembers } from './siteData';
 
 function TeamPage() {
   const roleGroups = teamMembers.reduce<Record<string, number>>((acc, member) => {
@@ -10,14 +10,14 @@ function TeamPage() {
   return (
     <SiteLayout
       activePath="/echipa"
-      kicker="Echipa"
-      title="Echipa medicala si administrativa (selectie)"
-      subtitle="Pagina separata pentru prezentarea personalului mentionat pe homepage, organizata intr-un format mai usor de parcurs."
+      kicker="Команда"
+      title="Медицинская и административная команда (выборка)"
+      subtitle="Отдельная страница для команды, упомянутой на главной странице, в более удобном и структурированном формате."
     >
       <section className="py-10 sm:py-14">
         <div className="container-shell grid gap-5 xl:grid-cols-[0.95fr_1.05fr]">
           <div className="panel p-6 sm:p-8">
-            <p className="text-xs uppercase tracking-[0.2em] text-pine/70">Distribuire pe roluri</p>
+            <p className="text-xs uppercase tracking-[0.2em] text-pine/70">Распределение по ролям</p>
             <div className="mt-4 grid gap-3">
               {Object.entries(roleGroups).map(([role, count]) => (
                 <div key={role} className="flex items-center justify-between rounded-xl border border-pine/10 bg-white p-4">

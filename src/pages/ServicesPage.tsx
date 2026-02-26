@@ -1,13 +1,13 @@
 import SiteLayout from '../layouts/SiteLayout';
-import { serviceDomains } from './HomePage';
+import { serviceDomains } from './siteData';
 
 function ServicesPage() {
   return (
     <SiteLayout
       activePath="/servicii"
-      kicker="Servicii"
-      title="Categorii de servicii si profile medicale"
-      subtitle="Pagina separata pentru servicii, pe baza categoriilor mentionate pe homepage-ul Zoomama."
+      kicker="Услуги"
+      title="Категории услуг и медицинские направления"
+      subtitle="Отдельная страница услуг на основе категорий и специализаций, указанных на главной странице Zoomama."
     >
       <section className="py-10 sm:py-14">
         <div className="container-shell">

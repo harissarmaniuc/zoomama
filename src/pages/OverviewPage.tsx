@@ -5,20 +5,20 @@ import {
   diagnosticHighlights,
   importantNotes,
   phoneContacts
-} from './HomePage';
+} from './siteData';
 
 function OverviewPage() {
   return (
     <SiteLayout
       activePath="/overview"
-      kicker="Overview"
-      title="Imagine de ansamblu a clinicii si a informatiilor publice Zoomama"
-      subtitle="Pagina separata pentru prezentarea rapida a clinicii: contacte 24/7, directii medicale, pozitionare si note importante extrase din homepage."
+      kicker="Главная"
+      title="Обзор клиники и ключевой информации с главной страницы Zoomama"
+      subtitle="Отдельная главная страница с быстрым доступом к контактам 24/7, направлениям работы, краткому описанию клиники и важным примечаниям."
     >
       <section className="py-10 sm:py-14">
         <div className="container-shell grid gap-5 lg:grid-cols-[1fr_1fr]">
           <div className="panel p-6 sm:p-8">
-            <p className="text-xs uppercase tracking-[0.2em] text-pine/70">Contacte principale</p>
+            <p className="text-xs uppercase tracking-[0.2em] text-pine/70">Основные контакты</p>
             <div className="mt-4 grid gap-3">
               {phoneContacts.map((contact) => (
                 <a
@@ -37,9 +37,7 @@ function OverviewPage() {
           </div>
 
           <div className="panel p-6 sm:p-8">
-            <p className="text-xs uppercase tracking-[0.2em] text-pine/70">
-              Diagnostic si specialitati mentionate
-            </p>
+            <p className="text-xs uppercase tracking-[0.2em] text-pine/70">Диагностика и специализации</p>
             <div className="mt-4 grid gap-3">
               {diagnosticHighlights.map((item) => (
                 <div key={item} className="flex gap-3 rounded-xl border border-pine/10 bg-white p-4">
@@ -56,13 +54,13 @@ function OverviewPage() {
         <div className="container-shell grid gap-5 xl:grid-cols-[1.05fr_0.95fr]">
           <div className="panel overflow-hidden">
             <div className="bg-gradient-to-br from-pine to-moss p-6 text-white sm:p-8">
-              <p className="text-xs uppercase tracking-[0.2em] text-white/70">Despre clinica</p>
+              <p className="text-xs uppercase tracking-[0.2em] text-white/70">О клинике</p>
               <h2 className="mt-2 text-3xl text-white sm:text-4xl">
-                Mesaj institutional sintetizat din homepage
+                Краткое позиционирование клиники по материалам главной страницы
               </h2>
               <p className="mt-4 max-w-2xl text-sm leading-7 text-white/85 sm:text-base">
-                Site-ul pozitioneaza clinica drept centru de ciclu complet pentru animale mici, cu
-                accent pe diagnostic, medicina interna, chirurgie si gestionarea urgentelor.
+                На сайте клиника представлена как многопрофильный центр для мелких домашних
+                животных с акцентом на диагностику, терапию, хирургию и экстренную помощь.
               </p>
             </div>
             <div className="grid gap-4 p-6 sm:grid-cols-2 sm:p-8">
@@ -77,7 +75,7 @@ function OverviewPage() {
 
           <div className="grid gap-5">
             <div className="panel p-6 sm:p-8">
-              <p className="text-xs uppercase tracking-[0.2em] text-pine/70">Bloc IMPORTANT</p>
+              <p className="text-xs uppercase tracking-[0.2em] text-pine/70">Блок IMPORTANT</p>
               <div className="mt-4 grid gap-3">
                 {importantNotes.map((note) => (
                   <div key={note} className="rounded-xl border border-pine/10 bg-white p-4">
@@ -89,7 +87,7 @@ function OverviewPage() {
 
             <div className="panel p-6 sm:p-8">
               <p className="text-xs uppercase tracking-[0.2em] text-pine/70">
-                Profil coordonator (rezumat)
+                Профиль главного врача (кратко)
               </p>
               <div className="mt-4 grid gap-3">
                 {chiefDoctorTimeline.map((item) => (

@@ -1,21 +1,21 @@
 import SiteLayout from '../layouts/SiteLayout';
-import { representativePrices } from './HomePage';
+import { representativePrices } from './siteData';
 
 function PricingPage() {
   return (
     <SiteLayout
       activePath="/tarife"
-      kicker="Tarife"
-      title="Tarife orientative (selectie reprezentativa)"
-      subtitle="Exemple de preturi sintetizate din homepage. In productia reala, tabelul ar trebui sincronizat dintr-o sursa actualizabila."
+      kicker="Тарифы"
+      title="Ориентировочные цены (репрезентативная выборка)"
+      subtitle="Примеры цен, собранные с главной страницы. Для production-версии лучше подключить обновляемый источник данных."
     >
       <section className="py-10 sm:py-14">
         <div className="container-shell grid gap-5 xl:grid-cols-[1.1fr_0.9fr]">
           <div className="panel overflow-hidden">
             <div className="grid grid-cols-[1.1fr_1fr_auto] bg-pine px-4 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-white">
-              <span>Categorie</span>
-              <span>Serviciu</span>
-              <span>Pret</span>
+              <span>Категория</span>
+              <span>Услуга</span>
+              <span>Цена</span>
             </div>
             <div className="divide-y divide-pine/10 bg-white">
               {representativePrices.map((row) => (
@@ -35,12 +35,12 @@ function PricingPage() {
 
           <div className="grid gap-5">
             <div className="panel p-6 sm:p-8">
-              <p className="text-xs uppercase tracking-[0.2em] text-pine/70">Observatii</p>
+              <p className="text-xs uppercase tracking-[0.2em] text-pine/70">Примечания</p>
               <div className="mt-4 grid gap-3">
                 {[
-                  'Preturile sunt prezentate ca selectie orientativa, nu lista completa.',
-                  'Unele servicii sunt tarifate in functie de complexitate, greutate sau durata internarii.',
-                  'Pentru publicare reala, adauga data ultimei actualizari si categoria de TVA (daca este cazul).'
+                  'Цены представлены как ориентировочная выборка, а не полный прайс-лист.',
+                  'Часть услуг тарифицируется в зависимости от сложности, веса пациента или длительности госпитализации.',
+                  'Для реального сайта стоит добавить дату последнего обновления прайса.'
                 ].map((note) => (
                   <div key={note} className="rounded-xl border border-pine/10 bg-white p-4">
                     <p className="text-sm leading-6 text-ink/80">{note}</p>
@@ -50,16 +50,16 @@ function PricingPage() {
             </div>
 
             <div className="panel p-6 sm:p-8">
-              <p className="text-xs uppercase tracking-[0.2em] text-pine/70">Navigare rapida</p>
+              <p className="text-xs uppercase tracking-[0.2em] text-pine/70">Быстрая навигация</p>
               <div className="mt-4 flex flex-wrap gap-2">
                 <a href="/servicii" className="btn-secondary">
-                  Vezi servicii
+                  Услуги
                 </a>
                 <a href="/contact" className="btn-secondary">
-                  Contact & programare
+                  Контакты
                 </a>
                 <a href="/echipa" className="btn-secondary">
-                  Echipa
+                  Команда
                 </a>
               </div>
             </div>
