@@ -4,22 +4,22 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        ink: '#1e2a24',
-        pine: '#234338',
-        moss: '#385847',
-        sage: '#d6dfd7',
-        parchment: '#f3efe6',
-        linen: '#ece4d5',
-        brass: '#ab8a4c',
-        clay: '#8e5a43'
+        ink: '#2d3748',
+        pine: '#2d7a6f',
+        moss: '#3d9085',
+        sage: '#dfeae7',
+        parchment: '#f5f7f6',
+        linen: '#e7edeb',
+        brass: '#c08b3e',
+        clay: '#c25050'
       },
       fontFamily: {
         serifDisplay: ['"Cormorant Garamond"', 'Georgia', 'serif'],
         body: ['"Source Sans 3"', 'ui-sans-serif', 'system-ui', 'sans-serif']
       },
       boxShadow: {
-        panel: '0 16px 40px rgba(25, 35, 30, 0.14)',
-        inset: 'inset 0 1px 0 rgba(255, 255, 255, 0.45)'
+        panel: '0 8px 30px rgba(15, 23, 42, 0.07)',
+        inset: 'inset 0 1px 0 rgba(255, 255, 255, 0.50)'
       },
       keyframes: {
         rise: {
