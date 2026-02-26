@@ -1,4 +1,4 @@
 export const appConfig = {
-  name: 'ZooMama Demo',
-  locale: 'ro',
+  name: 'ZooMama',
+  locale: 'ru',
 } as const;
