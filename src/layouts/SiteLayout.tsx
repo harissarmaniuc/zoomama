@@ -29,9 +29,9 @@ function SiteLayout({ children, activePath, title, subtitle, kicker }: SiteLayou
   return (
     <div className="min-h-screen">
       <div className="border-b border-pine/10 bg-white/60 backdrop-blur">
-        <div className="container-shell flex flex-col gap-2 py-3 text-sm text-pine sm:flex-row sm:items-center sm:justify-between">
+        <div className="container-shell flex flex-col gap-2 py-3 text-base text-pine sm:flex-row sm:items-center sm:justify-between">
           <p className="tracking-wide">Ветеринарная клиника и госпиталь ZooMama</p>
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs uppercase tracking-[0.18em]">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm uppercase tracking-[0.18em]">
             <span>Кишинев • 24/7</span>
             <span className="hidden sm:inline text-brass">•</span>
             <a className="hover:text-ink" href="tel:+37368178419">
@@ -69,7 +69,7 @@ function SiteLayout({ children, activePath, title, subtitle, kicker }: SiteLayou
               <span className="block font-serifDisplay text-2xl leading-none tracking-wide text-pine">
                 ZooMama
               </span>
-              <span className="block text-[10px] uppercase tracking-[0.35em] text-pine/70">
+              <span className="block text-xs uppercase tracking-[0.35em] text-pine/70">
                 Ветеринарная клиника 24/7
               </span>
             </span>
@@ -84,7 +84,7 @@ function SiteLayout({ children, activePath, title, subtitle, kicker }: SiteLayou
                   key={item.href}
                   href={item.href}
                   className={[
-                    'text-sm font-semibold uppercase tracking-[0.18em] transition',
+                    'text-base font-semibold uppercase tracking-[0.14em] transition',
                     isActive ? 'text-pine' : 'text-pine/75 hover:text-ink'
                   ].join(' ')}
                 >
@@ -105,7 +105,7 @@ function SiteLayout({ children, activePath, title, subtitle, kicker }: SiteLayou
           <div className="container-shell">
             {kicker ? <span className="section-kicker">{kicker}</span> : null}
             <h1 className="max-w-4xl text-4xl leading-tight sm:text-5xl">{title}</h1>
-            <p className="mt-4 max-w-3xl text-base leading-7 text-ink/80">{subtitle}</p>
+            <p className="mt-4 max-w-3xl text-lg leading-8 text-ink/80">{subtitle}</p>
           </div>
         </section>
 
@@ -116,11 +116,11 @@ function SiteLayout({ children, activePath, title, subtitle, kicker }: SiteLayou
         <div className="container-shell flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="font-serifDisplay text-2xl text-pine">ZooMama</p>
-            <p className="text-xs uppercase tracking-[0.2em] text-pine/70">
+            <p className="text-sm uppercase tracking-[0.2em] text-pine/70">
               Ветеринарная клиника • Кишинев • 24/7
             </p>
           </div>
-          <div className="text-sm text-ink/70">
+          <div className="text-base text-ink/70">
             ул. А. Маринеску 11/3 • +373 68 17 84 19 • Zoomama
           </div>
         </div>

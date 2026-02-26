@@ -20,16 +20,16 @@ function ServicesPage() {
               >
                 <div className="absolute right-0 top-0 h-24 w-24 translate-x-8 -translate-y-8 rounded-full border border-brass/20 transition group-hover:scale-110" />
                 <div className="relative">
-                  <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full border border-pine/15 bg-white text-sm font-semibold text-pine">
+                  <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full border border-pine/15 bg-white text-base font-semibold text-pine">
                     {String(index + 1).padStart(2, '0')}
                   </div>
                   <h2 className="text-2xl leading-tight">{service.name}</h2>
-                  <p className="mt-3 text-sm leading-6 text-ink/75">{service.summary}</p>
+                  <p className="mt-3 text-base leading-7 text-ink/75">{service.summary}</p>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {service.examples.map((example) => (
                       <span
                         key={example}
-                        className="rounded-full border border-pine/10 bg-parchment px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-pine"
+                        className="rounded-full border border-pine/10 bg-parchment px-3 py-1 text-sm font-semibold uppercase tracking-[0.14em] text-pine"
                       >
                         {example}
                       </span>

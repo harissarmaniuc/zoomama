@@ -217,9 +217,9 @@ function App() {
   return (
     <div className="min-h-screen">
       <div className="border-b border-pine/10 bg-white/60 backdrop-blur">
-        <div className="container-shell flex flex-col gap-2 py-3 text-sm text-pine sm:flex-row sm:items-center sm:justify-between">
+        <div className="container-shell flex flex-col gap-2 py-3 text-base text-pine sm:flex-row sm:items-center sm:justify-between">
           <p className="tracking-wide">Demo bazat pe analiza homepage-ului Zoomama (continut sintetizat)</p>
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs uppercase tracking-[0.18em]">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm uppercase tracking-[0.18em]">
             <span>Chisinau • 24/7</span>
             <span className="hidden sm:inline text-brass">•</span>
             <a className="hover:text-ink" href="tel:+37368178419">
@@ -257,7 +257,7 @@ function App() {
               <span className="block font-serifDisplay text-2xl leading-none tracking-wide text-pine">
                 ZooMama
               </span>
-              <span className="block text-[10px] uppercase tracking-[0.35em] text-pine/70">
+              <span className="block text-xs uppercase tracking-[0.35em] text-pine/70">
                 Demo React / Tailwind
               </span>
             </span>
@@ -275,7 +275,7 @@ function App() {
               <a
                 key={label}
                 href={href}
-                className="text-sm font-semibold uppercase tracking-[0.18em] text-pine/85 transition hover:text-ink"
+                className="text-base font-semibold uppercase tracking-[0.14em] text-pine/85 transition hover:text-ink"
               >
                 {label}
               </a>
@@ -296,7 +296,7 @@ function App() {
               <h1 className="max-w-2xl text-4xl leading-tight sm:text-5xl lg:text-6xl">
                 Demo formal, clasic, construit din informatiile reale ale homepage-ului ZooMama.
               </h1>
-              <p className="mt-5 max-w-2xl text-base leading-7 text-ink/80 sm:text-lg">
+              <p className="mt-5 max-w-2xl text-lg leading-8 text-ink/80 sm:text-xl">
                 Am integrat o parte mare din continutul public: telefoane pentru programari si ATI, servicii si profile medicale, exemple de tarife, prezentare clinica, echipa, reguli importante si date de contact / locatie.
               </p>
 
@@ -307,7 +307,7 @@ function App() {
                     className="panel rounded-xl p-4 animate-rise"
                     style={{ animationDelay: `${90 * index}ms` }}
                   >
-                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-pine/70">
+                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-pine/70">
                       {contact.label}
                     </p>
                     <a
@@ -316,10 +316,10 @@ function App() {
                     >
                       {contact.phone}
                     </a>
-                    <p className="mt-2 text-sm leading-6 text-ink/70">{contact.note}</p>
+                    <p className="mt-2 text-base leading-7 text-ink/70">{contact.note}</p>
                     <span
                       className={[
-                        'mt-3 inline-flex rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.16em]',
+                        'mt-3 inline-flex rounded-full px-2.5 py-1 text-sm font-semibold uppercase tracking-[0.16em]',
                         contact.accent === 'clay'
                           ? 'bg-clay/10 text-clay'
                           : contact.accent === 'brass'
@@ -334,14 +334,14 @@ function App() {
               </div>
 
               <div className="mt-8 panel p-5 sm:p-6">
-                <p className="text-xs uppercase tracking-[0.2em] text-pine/70">
+                <p className="text-sm uppercase tracking-[0.2em] text-pine/70">
                   Diagnostica si specialitati mentionate pe homepage
                 </p>
                 <div className="mt-4 grid gap-3 sm:grid-cols-2">
                   {diagnosticHighlights.map((item) => (
                     <div key={item} className="flex gap-3 rounded-xl border border-pine/10 bg-white p-4">
                       <div className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-brass" />
-                      <p className="text-sm leading-6 text-ink/80">{item}</p>
+                      <p className="text-base leading-7 text-ink/80">{item}</p>
                     </div>
                   ))}
                 </div>
@@ -366,7 +366,7 @@ function App() {
                       <p className="max-w-[18ch] font-serifDisplay text-3xl leading-tight sm:text-4xl">
                         Clinica de ciclu complet, cu focus pe diagnostic si urgente.
                       </p>
-                      <p className="mt-3 max-w-[36ch] text-sm leading-6 text-white/80">
+                      <p className="mt-3 max-w-[36ch] text-base leading-7 text-white/80">
                         Reinterpretare demo a mesajului central de pe site: servicii complete, specialisti de profil, laborator, imagistica si suport ATI.
                       </p>
                     </div>
@@ -379,7 +379,7 @@ function App() {
                       ].map(([value, label]) => (
                         <div key={label} className="rounded-xl border border-white/15 bg-white/5 p-3">
                           <p className="font-serifDisplay text-2xl leading-none">{value}</p>
-                          <p className="mt-1 text-xs uppercase tracking-[0.18em] text-white/70">
+                          <p className="mt-1 text-sm uppercase tracking-[0.18em] text-white/70">
                             {label}
                           </p>
                         </div>
@@ -392,7 +392,7 @@ function App() {
                   {animalGroups.map((group) => (
                     <div key={group.title} className="rounded-xl border border-pine/10 bg-white p-4">
                       <p className="font-semibold text-pine">{group.title}</p>
-                      <p className="mt-2 text-sm leading-6 text-ink/75">{group.desc}</p>
+                      <p className="mt-2 text-base leading-7 text-ink/75">{group.desc}</p>
                     </div>
                   ))}
                 </div>
@@ -412,7 +412,7 @@ function App() {
                   <h2 className="text-3xl text-white sm:text-4xl">
                     Scurta sinteza a mesajului institutional de pe homepage
                   </h2>
-                  <p className="mt-4 max-w-xl text-sm leading-7 text-white/85 sm:text-base">
+                  <p className="mt-4 max-w-xl text-base leading-8 text-white/85 sm:text-lg">
                     Site-ul descrie Zoomama ca un proiect de familie de medici veterinari, cu experienta inceputa in 2009, orientat spre diagnostic corect, tratament bazat pe dovezi si acces rapid la analize in cadrul clinicii.
                   </p>
 
@@ -420,7 +420,7 @@ function App() {
                     {clinicFacts.map((fact) => (
                       <div key={fact.title} className="rounded-xl border border-white/15 bg-white/5 p-4">
                         <p className="font-semibold text-white">{fact.title}</p>
-                        <p className="mt-2 text-sm leading-6 text-white/85">{fact.text}</p>
+                        <p className="mt-2 text-base leading-7 text-white/85">{fact.text}</p>
                       </div>
                     ))}
                   </div>
@@ -428,7 +428,7 @@ function App() {
 
                 <div className="bg-white/80 p-6 sm:p-8 lg:p-10">
                   <div className="rounded-2xl border border-pine/10 bg-parchment/70 p-5">
-                    <p className="text-xs uppercase tracking-[0.2em] text-pine/70">Bloc IMPORTANT</p>
+                    <p className="text-sm uppercase tracking-[0.2em] text-pine/70">Bloc IMPORTANT</p>
                     <p className="mt-3 font-serifDisplay text-2xl leading-tight text-pine">
                       Reguli si limitari afisate direct pe homepage
                     </p>
@@ -436,15 +436,15 @@ function App() {
                       {importantNotes.map((note) => (
                         <div key={note} className="flex gap-3 rounded-lg border border-pine/10 bg-white p-3">
                           <div className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-clay" />
-                          <p className="text-sm leading-6 text-ink/80">{note}</p>
+                          <p className="text-base leading-7 text-ink/80">{note}</p>
                         </div>
                       ))}
                     </div>
                   </div>
 
                   <div className="mt-6 rounded-2xl border border-brass/20 bg-linen/60 p-5">
-                    <p className="text-xs uppercase tracking-[0.2em] text-clay">Observatie UX</p>
-                    <p className="mt-3 text-sm leading-7 text-ink/80">
+                    <p className="text-sm uppercase tracking-[0.2em] text-clay">Observatie UX</p>
+                    <p className="mt-3 text-base leading-8 text-ink/80">
                       Pentru demo am pastrat tonul formal si am reorganizat informatiile in blocuri mai clare pe mobil, dar am mentinut esentialul: 24/7, urgente, specialitati, tarife orientative si echipa.
                     </p>
                   </div>
@@ -461,7 +461,7 @@ function App() {
                 <h2 className="text-3xl sm:text-4xl">
                   Categorii medicale mentionate pe homepage-ul original
                 </h2>
-                <p className="mt-3 max-w-3xl text-base leading-7 text-ink/75">
+                <p className="mt-3 max-w-3xl text-base leading-8 text-ink/75">
                   Site-ul listeaza o gama larga de domenii: terapie, ATI, diagnostic, chirurgie, urologie, ortopedie/traumatologie, cardiologie, endocrinologie, stomatologie, oncologie, dermatologie, laborator si alte servicii.
                 </p>
               </div>
@@ -483,12 +483,12 @@ function App() {
                       {String(index + 1).padStart(2, '0')}
                     </div>
                     <h3 className="text-2xl leading-tight">{service.name}</h3>
-                    <p className="mt-3 text-sm leading-6 text-ink/75">{service.summary}</p>
+                    <p className="mt-3 text-base leading-7 text-ink/75">{service.summary}</p>
                     <div className="mt-4 flex flex-wrap gap-2">
                       {service.examples.map((example) => (
                         <span
                           key={example}
-                          className="rounded-full border border-pine/10 bg-parchment px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-pine"
+                          className="rounded-full border border-pine/10 bg-parchment px-3 py-1 text-sm font-semibold uppercase tracking-[0.14em] text-pine"
                         >
                           {example}
                         </span>
@@ -508,12 +508,12 @@ function App() {
               <h2 className="text-3xl sm:text-4xl">
                 Exemple de preturi afisate in sectiunea de servicii
               </h2>
-              <p className="mt-4 max-w-2xl text-sm leading-7 text-ink/75">
+              <p className="mt-4 max-w-2xl text-base leading-8 text-ink/75">
                 Tabelul de mai jos reia o selectie reprezentativa din preturile mentionate pe homepage. In site-ul original exista mai multe categorii si detalii suplimentare.
               </p>
 
               <div className="mt-6 overflow-hidden rounded-2xl border border-pine/10">
-                <div className="grid grid-cols-[1.1fr_1fr_auto] bg-pine px-4 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-white">
+                <div className="grid grid-cols-[1.1fr_1fr_auto] bg-pine px-4 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white">
                   <span>Categorie</span>
                   <span>Serviciu</span>
                   <span>Pret</span>
@@ -524,11 +524,11 @@ function App() {
                       key={`${row.category}-${row.service}`}
                       className="grid grid-cols-1 gap-1 px-4 py-3 sm:grid-cols-[1.1fr_1fr_auto] sm:items-center sm:gap-3"
                     >
-                      <span className="text-xs font-semibold uppercase tracking-[0.16em] text-pine/75">
+                      <span className="text-sm font-semibold uppercase tracking-[0.16em] text-pine/75">
                         {row.category}
                       </span>
-                      <span className="text-sm text-ink/85">{row.service}</span>
-                      <span className="text-sm font-semibold text-pine">{row.price}</span>
+                      <span className="text-base text-ink/85">{row.service}</span>
+                      <span className="text-base font-semibold text-pine">{row.price}</span>
                     </div>
                   ))}
                 </div>
@@ -539,7 +539,7 @@ function App() {
               <div className="border-b border-pine/10 bg-white/75 p-6">
                 <span className="section-kicker">Coordonare medicala</span>
                 <h2 className="text-3xl">Medic coordonator (sinteza profil public)</h2>
-                <p className="mt-3 text-sm leading-7 text-ink/75">
+                <p className="mt-3 text-base leading-8 text-ink/75">
                   Homepage-ul include o prezentare detaliata a medicului coordonator Alina Pipchuk, cu educatie, stagii si arii de interes medical.
                 </p>
               </div>
@@ -550,11 +550,11 @@ function App() {
                     AP
                   </div>
                   <div>
-                    <p className="text-xs uppercase tracking-[0.18em] text-pine/70">
+                    <p className="text-sm uppercase tracking-[0.18em] text-pine/70">
                       Glavnii vrach / coordonator
                     </p>
                     <p className="font-serifDisplay text-3xl leading-none text-pine">Alina Pipchuk</p>
-                    <p className="mt-1 text-sm text-ink/70">
+                    <p className="mt-1 text-base text-ink/70">
                       medicina interna, ATI, ecografie, endocrinologie (conform descrierii publice)
                     </p>
                   </div>
@@ -564,12 +564,12 @@ function App() {
                   {chiefDoctorTimeline.map((item) => (
                     <div key={`${item.year}-${item.title}`} className="rounded-xl border border-pine/10 bg-white p-4">
                       <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-                        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-pine/70">
+                        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-pine/70">
                           {item.year}
                         </p>
                         <div className="sm:w-[82%]">
                           <p className="font-semibold text-pine">{item.title}</p>
-                          <p className="mt-1 text-sm leading-6 text-ink/75">{item.detail}</p>
+                          <p className="mt-1 text-base leading-7 text-ink/75">{item.detail}</p>
                         </div>
                       </div>
                     </div>
@@ -610,14 +610,14 @@ function App() {
                       </div>
                       <div>
                         <p className="font-semibold leading-tight text-pine">{member.name}</p>
-                        <p className="text-xs uppercase tracking-[0.16em] text-pine/70">
+                        <p className="text-sm uppercase tracking-[0.16em] text-pine/70">
                           {member.role}
                         </p>
                       </div>
                     </div>
                   </div>
                   <div className="p-4">
-                    <p className="text-sm leading-6 text-ink/75">{member.focus}</p>
+                    <p className="text-base leading-7 text-ink/75">{member.focus}</p>
                   </div>
                 </article>
               ))}
@@ -633,14 +633,14 @@ function App() {
                 <div className="mt-5 grid gap-3">
                   {locationInfo.map((line) => (
                     <div key={line} className="rounded-xl border border-pine/10 bg-white p-4">
-                      <p className="text-sm leading-6 text-ink/80">{line}</p>
+                      <p className="text-base leading-7 text-ink/80">{line}</p>
                     </div>
                   ))}
                 </div>
 
                 <div className="mt-6 rounded-2xl border border-brass/20 bg-linen/50 p-5">
-                  <p className="text-xs uppercase tracking-[0.2em] text-clay">Corpul 2</p>
-                  <p className="mt-3 text-sm leading-7 text-ink/80">
+                  <p className="text-sm uppercase tracking-[0.2em] text-clay">Corpul 2</p>
+                  <p className="mt-3 text-base leading-8 text-ink/80">
                     Homepage-ul mentioneaza si al doilea corp la <strong>Paris 34/2</strong>, cu numar separat de receptie: <strong>069 03 66 47</strong>.
                   </p>
                 </div>
@@ -664,12 +664,12 @@ function App() {
                         className="flex items-center justify-between gap-3 rounded-xl border border-pine/10 bg-white p-4 transition hover:bg-parchment/70"
                       >
                         <div>
-                          <p className="text-xs uppercase tracking-[0.16em] text-pine/70">
+                          <p className="text-sm uppercase tracking-[0.16em] text-pine/70">
                             {contact.label}
                           </p>
                           <p className="mt-1 font-semibold text-pine">{contact.phone}</p>
                         </div>
-                        <span className="text-xs font-semibold uppercase tracking-[0.16em] text-pine/60">
+                        <span className="text-sm font-semibold uppercase tracking-[0.16em] text-pine/60">
                           Apel
                         </span>
                       </a>
@@ -677,7 +677,7 @@ function App() {
                   </div>
 
                   <div className="rounded-2xl border border-pine/10 bg-parchment/60 p-5">
-                    <p className="text-xs uppercase tracking-[0.2em] text-pine/70">Online</p>
+                    <p className="text-sm uppercase tracking-[0.2em] text-pine/70">Online</p>
                     <div className="mt-3 flex flex-wrap gap-2">
                       {socialLinks.map((item) => (
                         <a
@@ -685,65 +685,65 @@ function App() {
                           href={item.href}
                           target="_blank"
                           rel="noreferrer"
-                          className="rounded-full border border-pine/15 bg-white px-3 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-pine transition hover:bg-linen"
+                          className="rounded-full border border-pine/15 bg-white px-3.5 py-2 text-sm font-semibold uppercase tracking-[0.14em] text-pine transition hover:bg-linen"
                         >
                           {item.label}
                         </a>
                       ))}
                     </div>
-                    <p className="mt-4 text-xs leading-5 text-ink/60">
+                    <p className="mt-4 text-sm leading-6 text-ink/60">
                       Demo UI. Verifica linkurile si politicile de contact inainte de productie.
                     </p>
                   </div>
 
                   <form className="grid gap-4" onSubmit={(event) => event.preventDefault()}>
                     <label className="grid gap-2">
-                      <span className="text-xs font-semibold uppercase tracking-[0.18em] text-pine/80">
+                      <span className="text-sm font-semibold uppercase tracking-[0.18em] text-pine/80">
                         Nume
                       </span>
                       <input
                         type="text"
                         placeholder="Ex. Ana Popescu"
-                        className="rounded-xl border border-pine/15 bg-white px-4 py-3 text-sm outline-none placeholder:text-ink/35 focus:border-pine/35"
+                        className="rounded-xl border border-pine/15 bg-white px-4 py-3 text-base outline-none placeholder:text-ink/35 focus:border-pine/35"
                       />
                     </label>
 
                     <div className="grid gap-4 sm:grid-cols-2">
                       <label className="grid gap-2">
-                        <span className="text-xs font-semibold uppercase tracking-[0.18em] text-pine/80">
+                        <span className="text-sm font-semibold uppercase tracking-[0.18em] text-pine/80">
                           Telefon
                         </span>
                         <input
                           type="tel"
                           placeholder="+373..."
-                          className="rounded-xl border border-pine/15 bg-white px-4 py-3 text-sm outline-none placeholder:text-ink/35 focus:border-pine/35"
+                          className="rounded-xl border border-pine/15 bg-white px-4 py-3 text-base outline-none placeholder:text-ink/35 focus:border-pine/35"
                         />
                       </label>
                       <label className="grid gap-2">
-                        <span className="text-xs font-semibold uppercase tracking-[0.18em] text-pine/80">
+                        <span className="text-sm font-semibold uppercase tracking-[0.18em] text-pine/80">
                           Solicitare
                         </span>
                         <input
                           type="text"
                           placeholder="Consult / urgenta / analiza"
-                          className="rounded-xl border border-pine/15 bg-white px-4 py-3 text-sm outline-none placeholder:text-ink/35 focus:border-pine/35"
+                          className="rounded-xl border border-pine/15 bg-white px-4 py-3 text-base outline-none placeholder:text-ink/35 focus:border-pine/35"
                         />
                       </label>
                     </div>
 
                     <label className="grid gap-2">
-                      <span className="text-xs font-semibold uppercase tracking-[0.18em] text-pine/80">
+                      <span className="text-sm font-semibold uppercase tracking-[0.18em] text-pine/80">
                         Mesaj
                       </span>
                       <textarea
                         rows={4}
                         placeholder="Descrieti pe scurt cazul..."
-                        className="resize-none rounded-xl border border-pine/15 bg-white px-4 py-3 text-sm outline-none placeholder:text-ink/35 focus:border-pine/35"
+                        className="resize-none rounded-xl border border-pine/15 bg-white px-4 py-3 text-base outline-none placeholder:text-ink/35 focus:border-pine/35"
                       />
                     </label>
 
                     <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                      <p className="text-xs leading-5 text-ink/60">
+                      <p className="text-sm leading-6 text-ink/60">
                         Formular demo inspirat de nevoia de contact rapid si triaj.
                       </p>
                       <button type="submit" className="btn-primary">
@@ -762,11 +762,11 @@ function App() {
         <div className="container-shell flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="font-serifDisplay text-2xl text-pine">ZooMama Demo</p>
-            <p className="text-xs uppercase tracking-[0.2em] text-pine/70">
+            <p className="text-sm uppercase tracking-[0.2em] text-pine/70">
               React + TypeScript + Tailwind • continut sintetizat din homepage
             </p>
           </div>
-          <div className="text-sm text-ink/70">
+          <div className="text-base text-ink/70">
             Analiza efectuata pe homepage zoomama.md (sitemap lastmod: 2026-02-08)
           </div>
         </div>

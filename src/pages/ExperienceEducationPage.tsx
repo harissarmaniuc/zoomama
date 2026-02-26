@@ -314,9 +314,9 @@ function ExperienceEducationPage() {
   return (
     <div className="min-h-screen bg-parchment">
       <div className="border-b border-pine/10 bg-white/60 backdrop-blur">
-        <div className="container-shell flex flex-col gap-2 py-3 text-sm text-pine sm:flex-row sm:items-center sm:justify-between">
+        <div className="container-shell flex flex-col gap-2 py-3 text-base text-pine sm:flex-row sm:items-center sm:justify-between">
           <p className="tracking-wide">Профиль врача • Опыт и образование</p>
-          <div className="flex items-center gap-3 text-xs uppercase tracking-[0.18em] text-pine/75">
+          <div className="flex items-center gap-3 text-sm uppercase tracking-[0.18em] text-pine/75">
             <span>Профиль врача</span>
             <span className="text-brass">•</span>
             <a href="/" className="hover:text-ink">
@@ -328,7 +328,7 @@ function ExperienceEducationPage() {
 
       <header className="border-b border-pine/10 bg-parchment/90">
         <div className="container-shell py-8 sm:py-10">
-          <a href="/" className="text-xs font-semibold uppercase tracking-[0.2em] text-pine/70 hover:text-pine">
+          <a href="/" className="text-sm font-semibold uppercase tracking-[0.2em] text-pine/70 hover:text-pine">
             ← ZooMama
           </a>
           <div className="mt-4 grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
@@ -337,27 +337,27 @@ function ExperienceEducationPage() {
               <h1 className="max-w-3xl text-4xl leading-tight sm:text-5xl">
                 Опыт и образование
               </h1>
-              <p className="mt-4 max-w-2xl text-base leading-7 text-ink/80">
+              <p className="mt-4 max-w-2xl text-lg leading-8 text-ink/80">
                 Структурированная страница для подробного резюме врача: повышение квалификации,
                 конференции, курсы, мастер-классы и стажировки по годам.
               </p>
             </div>
 
             <div className="panel p-5 sm:p-6">
-              <p className="text-xs uppercase tracking-[0.2em] text-pine/70">Навигация по годам</p>
+              <p className="text-sm uppercase tracking-[0.2em] text-pine/70">Навигация по годам</p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {yearLabels.map((year) => (
                   <a
                     key={year}
                     href={`#year-${year}`}
-                    className="rounded-full border border-pine/15 bg-white px-3 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-pine transition hover:bg-linen"
+                    className="rounded-full border border-pine/15 bg-white px-3.5 py-2 text-sm font-semibold uppercase tracking-[0.16em] text-pine transition hover:bg-linen"
                   >
                     {year}
                   </a>
                 ))}
               </div>
               <div className="mt-5 rounded-xl border border-brass/20 bg-linen/50 p-4">
-                <p className="text-sm leading-6 text-ink/80">
+                <p className="text-base leading-7 text-ink/80">
                 Страница оформлена в том же формальном стиле, что и основной сайт, и может
                 использоваться как отдельный раздел профиля врача.
                 </p>
@@ -378,9 +378,9 @@ function ExperienceEducationPage() {
             >
               <div className="grid lg:grid-cols-[180px_1fr]">
                 <div className="border-b border-pine/10 bg-gradient-to-br from-pine to-moss p-6 text-white lg:border-b-0 lg:border-r">
-                  <p className="text-xs uppercase tracking-[0.22em] text-white/70">Год</p>
+                  <p className="text-sm uppercase tracking-[0.22em] text-white/70">Год</p>
                   <p className="mt-2 font-serifDisplay text-5xl leading-none">{yearBlock.year}</p>
-                  <p className="mt-4 text-sm leading-6 text-white/85">{yearBlock.subtitle}</p>
+                  <p className="mt-4 text-base leading-7 text-white/85">{yearBlock.subtitle}</p>
                 </div>
 
                 <div className="p-5 sm:p-6 lg:p-7">
@@ -395,11 +395,11 @@ function ExperienceEducationPage() {
                         <div className="mt-4 grid gap-3">
                           {section.items.map((item) => (
                             <div key={item.title} className="rounded-xl border border-pine/10 bg-parchment/45 p-4">
-                              <p className="text-sm leading-6 font-semibold text-pine">{item.title}</p>
+                              <p className="text-base leading-7 font-semibold text-pine">{item.title}</p>
                               {item.details && item.details.length > 0 ? (
                                 <div className="mt-2 grid gap-2">
                                   {item.details.map((detail) => (
-                                    <p key={detail} className="text-sm leading-6 text-ink/80">
+                                    <p key={detail} className="text-base leading-7 text-ink/80">
                                       {detail}
                                     </p>
                                   ))}
@@ -422,7 +422,7 @@ function ExperienceEducationPage() {
         <div className="container-shell flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="font-serifDisplay text-2xl text-pine">Опыт и образование</p>
-            <p className="text-xs uppercase tracking-[0.2em] text-pine/70">
+            <p className="text-sm uppercase tracking-[0.2em] text-pine/70">
               Отдельная страница профиля врача
             </p>
           </div>

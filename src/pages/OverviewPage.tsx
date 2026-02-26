@@ -18,7 +18,7 @@ function OverviewPage() {
       <section className="py-10 sm:py-14">
         <div className="container-shell grid gap-5 lg:grid-cols-[1fr_1fr]">
           <div className="panel p-6 sm:p-8">
-            <p className="text-xs uppercase tracking-[0.2em] text-pine/70">Основные контакты</p>
+            <p className="text-sm uppercase tracking-[0.2em] text-pine/70">Основные контакты</p>
             <div className="mt-4 grid gap-3">
               {phoneContacts.map((contact) => (
                 <a
@@ -26,23 +26,23 @@ function OverviewPage() {
                   href={`tel:+373${contact.phone.replace(/\s/g, '')}`}
                   className="rounded-xl border border-pine/10 bg-white p-4 transition hover:bg-parchment/70"
                 >
-                  <p className="text-xs uppercase tracking-[0.16em] text-pine/70">{contact.label}</p>
+                  <p className="text-sm uppercase tracking-[0.16em] text-pine/70">{contact.label}</p>
                   <p className="mt-1 font-serifDisplay text-2xl leading-none text-pine">
                     {contact.phone}
                   </p>
-                  <p className="mt-2 text-sm leading-6 text-ink/75">{contact.note}</p>
+                  <p className="mt-2 text-base leading-7 text-ink/75">{contact.note}</p>
                 </a>
               ))}
             </div>
           </div>
 
           <div className="panel p-6 sm:p-8">
-            <p className="text-xs uppercase tracking-[0.2em] text-pine/70">Диагностика и специализации</p>
+            <p className="text-sm uppercase tracking-[0.2em] text-pine/70">Диагностика и специализации</p>
             <div className="mt-4 grid gap-3">
               {diagnosticHighlights.map((item) => (
                 <div key={item} className="flex gap-3 rounded-xl border border-pine/10 bg-white p-4">
                   <div className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-brass" />
-                  <p className="text-sm leading-6 text-ink/80">{item}</p>
+                  <p className="text-base leading-7 text-ink/80">{item}</p>
                 </div>
               ))}
             </div>
@@ -54,11 +54,11 @@ function OverviewPage() {
         <div className="container-shell grid gap-5 xl:grid-cols-[1.05fr_0.95fr]">
           <div className="panel overflow-hidden">
             <div className="bg-gradient-to-br from-pine to-moss p-6 text-white sm:p-8">
-              <p className="text-xs uppercase tracking-[0.2em] text-white/70">О клинике</p>
+              <p className="text-sm uppercase tracking-[0.2em] text-white/70">О клинике</p>
               <h2 className="mt-2 text-3xl text-white sm:text-4xl">
                 Краткое позиционирование клиники
               </h2>
-              <p className="mt-4 max-w-2xl text-sm leading-7 text-white/85 sm:text-base">
+              <p className="mt-4 max-w-2xl text-base leading-7 text-white/85 sm:text-lg">
                 Мы объединяем диагностику, терапию, хирургическое направление и интенсивную
                 терапию в одном госпитале, чтобы быстрее принимать клинические решения.
               </p>
@@ -67,7 +67,7 @@ function OverviewPage() {
               {clinicFacts.map((fact) => (
                 <div key={fact.title} className="rounded-xl border border-pine/10 bg-white p-4">
                   <p className="font-semibold text-pine">{fact.title}</p>
-                  <p className="mt-2 text-sm leading-6 text-ink/75">{fact.text}</p>
+                  <p className="mt-2 text-base leading-7 text-ink/75">{fact.text}</p>
                 </div>
               ))}
             </div>
@@ -75,26 +75,26 @@ function OverviewPage() {
 
           <div className="grid gap-5">
             <div className="panel p-6 sm:p-8">
-              <p className="text-xs uppercase tracking-[0.2em] text-pine/70">Блок IMPORTANT</p>
+              <p className="text-sm uppercase tracking-[0.2em] text-pine/70">Блок IMPORTANT</p>
               <div className="mt-4 grid gap-3">
                 {importantNotes.map((note) => (
                   <div key={note} className="rounded-xl border border-pine/10 bg-white p-4">
-                    <p className="text-sm leading-6 text-ink/80">{note}</p>
+                    <p className="text-base leading-7 text-ink/80">{note}</p>
                   </div>
                 ))}
               </div>
             </div>
 
             <div className="panel p-6 sm:p-8">
-              <p className="text-xs uppercase tracking-[0.2em] text-pine/70">
+              <p className="text-sm uppercase tracking-[0.2em] text-pine/70">
                 Профиль главного врача (кратко)
               </p>
               <div className="mt-4 grid gap-3">
                 {chiefDoctorTimeline.map((item) => (
                   <div key={`${item.year}-${item.title}`} className="rounded-xl border border-pine/10 bg-white p-4">
-                    <p className="text-xs uppercase tracking-[0.16em] text-pine/70">{item.year}</p>
+                    <p className="text-sm uppercase tracking-[0.16em] text-pine/70">{item.year}</p>
                     <p className="mt-1 font-semibold text-pine">{item.title}</p>
-                    <p className="mt-1 text-sm leading-6 text-ink/75">{item.detail}</p>
+                    <p className="mt-1 text-base leading-7 text-ink/75">{item.detail}</p>
                   </div>
                 ))}
               </div>
