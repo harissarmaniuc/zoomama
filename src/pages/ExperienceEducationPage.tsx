@@ -317,10 +317,10 @@ function ExperienceEducationPage() {
         <div className="container-shell flex flex-col gap-2 py-3 text-sm text-pine sm:flex-row sm:items-center sm:justify-between">
           <p className="tracking-wide">Профиль врача • Опыт и образование</p>
           <div className="flex items-center gap-3 text-xs uppercase tracking-[0.18em] text-pine/75">
-            <span>Demo page</span>
+            <span>Демо-страница</span>
             <span className="text-brass">•</span>
             <a href="/" className="hover:text-ink">
-              Inapoi la homepage
+              Вернуться на главную
             </a>
           </div>
         </div>
@@ -329,7 +329,7 @@ function ExperienceEducationPage() {
       <header className="border-b border-pine/10 bg-parchment/90">
         <div className="container-shell py-8 sm:py-10">
           <a href="/" className="text-xs font-semibold uppercase tracking-[0.2em] text-pine/70 hover:text-pine">
-            ← ZooMama Demo
+            ← ZooMama • Демо
           </a>
           <div className="mt-4 grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
             <div>
@@ -358,7 +358,7 @@ function ExperienceEducationPage() {
               </div>
               <div className="mt-5 rounded-xl border border-brass/20 bg-linen/50 p-4">
                 <p className="text-sm leading-6 text-ink/80">
-                  Страница оформлена в том же формальном стиле, что и основной demo-сайт, чтобы
+                Страница оформлена в том же формальном стиле, что и основной демо-сайт, чтобы
                   ее можно было использовать как отдельный раздел профиля врача.
                 </p>
               </div>
@@ -427,7 +427,7 @@ function ExperienceEducationPage() {
             </p>
           </div>
           <a href="/" className="btn-secondary">
-            Inapoi la homepage
+            Вернуться на главную
           </a>
         </div>
       </footer>
