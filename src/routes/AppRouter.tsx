@@ -3,6 +3,7 @@ import ExperienceEducationPage from '../pages/ExperienceEducationPage';
 import ContactPage from '../pages/ContactPage';
 import OverviewPage from '../pages/OverviewPage';
 import PricingPage from '../pages/PricingPage';
+import TeamMemberPage from '../pages/TeamMemberPage';
 import ServicesPage from '../pages/ServicesPage';
 import TeamPage from '../pages/TeamPage';
 
@@ -27,6 +28,11 @@ function AppRouter() {
 
   if (normalizedPath === '/tarify' || normalizedPath === '/tarife') {
     return <PricingPage />;
+  }
+
+  if (normalizedPath.startsWith('/komanda/') || normalizedPath.startsWith('/echipa/')) {
+    const slug = normalizedPath.split('/').filter(Boolean).slice(1).join('/');
+    return <TeamMemberPage slug={decodeURIComponent(slug)} />;
   }
 
   if (normalizedPath === '/komanda' || normalizedPath === '/echipa') {
