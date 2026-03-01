@@ -1,4 +1,5 @@
 import SiteLayout from '../layouts/SiteLayout';
+import { GiCat, GiGecko, GiSeatedMouse, GiSittingDog } from 'react-icons/gi';
 import {
   chiefDoctorTimeline,
   clinicFacts,
@@ -84,7 +85,7 @@ function OverviewPage() {
       </section>
 
       {/* Animal types — colorful cards */}
-      <section className="bg-gradient-to-br from-pine to-forest py-10 sm:py-14">
+      <section className="bg-gradient-to-br from-pine to-moss py-10 sm:py-14">
         <div className="container-shell">
           <p className="text-center text-sm font-semibold uppercase tracking-[0.22em] text-white/60">
             Мы принимаем
@@ -94,16 +95,24 @@ function OverviewPage() {
           </h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {animalTypes.map((animal, index) => {
-              const icons = ['fas fa-cat', 'fas fa-dog', 'fas fa-hippo', 'fas fa-frog'];
+              const icons = ['cat', 'dog', 'hamster', 'lizard'] as const;
+              const icon = icons[index];
               return (
                 <div
                   key={animal.name}
-                  className="rounded-2xl border border-white/15 bg-white/10 p-6 text-center backdrop-blur-sm animate-rise"
-                  style={{ animationDelay: `${index * 80}ms` }}
+                  className="rounded-2xl border border-white/15 bg-white/10 p-5 text-center"
                 >
-                  <i className={`${icons[index]} text-4xl text-white/90`} />
+                  {icon === 'cat' ? (
+                    <GiCat className="mx-auto text-3xl text-white/90" aria-hidden="true" />
+                  ) : icon === 'dog' ? (
+                    <GiSittingDog className="mx-auto text-3xl text-white/90" aria-hidden="true" />
+                  ) : icon === 'hamster' ? (
+                    <GiSeatedMouse className="mx-auto text-3xl text-white/90" aria-hidden="true" />
+                  ) : icon === 'lizard' ? (
+                    <GiGecko className="mx-auto text-3xl text-white/90" aria-hidden="true" />
+                  ) : null}
                   <h3 className="mt-3 text-xl font-semibold text-white">{animal.name}</h3>
-                  <p className="mt-2 text-base leading-7 text-white/75">{animal.description}</p>
+                  <p className="mt-2 text-base leading-7 text-white/80">{animal.description}</p>
                 </div>
               );
             })}
