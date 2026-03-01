@@ -1,11 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import AppRouter from './routes/AppRouter';
+import { LanguageContext } from './i18n/LanguageContext';
+import { getStoredLanguage, setStoredLanguage, type SiteLanguage } from './i18n/language';
+import { restoreRussianContent, scheduleRomanianTranslation } from './i18n/domTranslator';
 
 function getCurrentPath() {
   return window.location.pathname;
 }
 
 function App() {
+  const [language, setLanguageState] = useState<SiteLanguage>(getStoredLanguage);
   const [pathname, setPathname] = useState(getCurrentPath);
 
   useEffect(() => {
@@ -70,7 +74,58 @@ function App() {
     });
   }, [pathname]);
 
-  return <AppRouter pathname={pathname} />;
+  useEffect(() => {
+    document.documentElement.lang = language === 'ro' ? 'ro' : 'ru';
+  }, [language]);
+
+  useEffect(() => {
+    if (language !== 'ro') {
+      restoreRussianContent();
+      return;
+    }
+    scheduleRomanianTranslation();
+  }, [language]);
+
+  useEffect(() => {
+    if (language !== 'ro') return;
+    // Re-translate newly rendered route content.
+    scheduleRomanianTranslation();
+  }, [language, pathname]);
+
+  useEffect(() => {
+    if (language !== 'ro') return;
+
+    const observer = new MutationObserver(() => {
+      scheduleRomanianTranslation();
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['placeholder', 'title', 'aria-label']
+    });
+
+    return () => observer.disconnect();
+  }, [language]);
+
+  const setLanguage = useCallback((nextLanguage: SiteLanguage) => {
+    if (nextLanguage === language) return;
+
+    setStoredLanguage(nextLanguage);
+    setLanguageState(nextLanguage);
+  }, [language]);
+
+  const languageContextValue = useMemo(() => ({
+    language,
+    setLanguage
+  }), [language, setLanguage]);
+
+  return (
+    <LanguageContext.Provider value={languageContextValue}>
+      <AppRouter pathname={pathname} />
+    </LanguageContext.Provider>
+  );
 }
 
 export default App;

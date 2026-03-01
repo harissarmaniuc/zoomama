@@ -14,7 +14,7 @@ const cspHeader =
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " +
   "font-src 'self' https://fonts.gstatic.com; " +
   "img-src 'self' https://static.tildacdn.one data:; " +
-  "connect-src 'self'; " +
+  "connect-src 'self' https://translate.googleapis.com; " +
   "frame-ancestors 'none'; " +
   "base-uri 'self'; " +
   "form-action 'self';";

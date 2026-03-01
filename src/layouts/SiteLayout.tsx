@@ -1,4 +1,5 @@
 ﻿import { type ReactNode, useEffect, useState } from 'react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 type SiteLayoutProps = {
   children: ReactNode;
@@ -34,6 +35,7 @@ const footerSocials = [
 ];
 
 function SiteLayout({ children, activePath, title, subtitle, kicker }: SiteLayoutProps) {
+  const { language, setLanguage } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
@@ -136,18 +138,45 @@ function SiteLayout({ children, activePath, title, subtitle, kicker }: SiteLayou
             })}
           </nav>
 
-          {/* Emergency button — desktop */}
-          <a
-            href="tel:+37368285128"
-            className="hidden md:inline-flex items-center gap-2 rounded-full border border-clay/30 bg-clay/10 px-4 py-2 text-sm font-semibold text-clay transition hover:bg-clay/20"
-          >
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-clay opacity-75" />
-              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-clay" />
-            </span>
-            SOS 24/7
-          </a>
+          <div className="hidden items-center gap-2 md:flex">
+            <div
+              data-no-translate
+              className="inline-flex items-center rounded-full border border-pine/15 bg-white p-1"
+            >
+              <button
+                type="button"
+                onClick={() => setLanguage('ru')}
+                className={[
+                  'rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] transition',
+                  language === 'ru' ? 'bg-pine text-white' : 'text-pine/80 hover:bg-sage/40'
+                ].join(' ')}
+              >
+                RU
+              </button>
+              <button
+                type="button"
+                onClick={() => setLanguage('ro')}
+                className={[
+                  'rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] transition',
+                  language === 'ro' ? 'bg-pine text-white' : 'text-pine/80 hover:bg-sage/40'
+                ].join(' ')}
+              >
+                RO
+              </button>
+            </div>
 
+            {/* Emergency button — desktop */}
+            <a
+              href="tel:+37368285128"
+              className="inline-flex items-center gap-2 rounded-full border border-clay/30 bg-clay/10 px-4 py-2 text-sm font-semibold text-clay transition hover:bg-clay/20"
+            >
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-clay opacity-75" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-clay" />
+              </span>
+              SOS 24/7
+            </a>
+          </div>
           {/* Hamburger button — mobile */}
           <button
             type="button"
@@ -190,6 +219,30 @@ function SiteLayout({ children, activePath, title, subtitle, kicker }: SiteLayou
           <nav className="absolute right-0 top-0 flex h-full w-72 flex-col bg-cream shadow-xl">
             <div className="flex items-center justify-between border-b border-pine/10 px-5 py-5">
               <span className="font-serifDisplay text-xl text-pine">Меню</span>
+            </div>
+            <div className="border-b border-pine/10 px-4 py-3" data-no-translate>
+              <div className="inline-flex w-full items-center rounded-full border border-pine/15 bg-white p-1">
+                <button
+                  type="button"
+                  onClick={() => setLanguage('ru')}
+                  className={[
+                    'w-1/2 rounded-full px-3 py-2 text-sm font-semibold uppercase tracking-[0.16em] transition',
+                    language === 'ru' ? 'bg-pine text-white' : 'text-pine/80 hover:bg-sage/40'
+                  ].join(' ')}
+                >
+                  RU
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setLanguage('ro')}
+                  className={[
+                    'w-1/2 rounded-full px-3 py-2 text-sm font-semibold uppercase tracking-[0.16em] transition',
+                    language === 'ro' ? 'bg-pine text-white' : 'text-pine/80 hover:bg-sage/40'
+                  ].join(' ')}
+                >
+                  RO
+                </button>
+              </div>
             </div>
             <div className="flex flex-1 flex-col gap-1 overflow-y-auto px-4 py-4">
               {navItems.map((item) => {
@@ -356,3 +409,4 @@ function SiteLayout({ children, activePath, title, subtitle, kicker }: SiteLayou
 }
 
 export default SiteLayout;
+
