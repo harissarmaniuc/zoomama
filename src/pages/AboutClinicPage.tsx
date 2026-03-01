@@ -17,10 +17,10 @@ function AboutClinicPage() {
       title="О клинике Zoomama"
       subtitle="История клиники, ключевые направления развития и основные инфраструктурные преимущества."
     >
-      <section className="py-10 sm:py-14">
+      <section className="section-tinted py-10 sm:py-14">
         <div className="container-shell grid gap-5 xl:grid-cols-[1.05fr_0.95fr]">
           <div className="panel overflow-hidden">
-            <div className="bg-gradient-to-br from-pine to-moss p-6 text-white sm:p-8">
+            <div className="bg-gradient-to-br from-forest via-pine to-moss p-6 text-white sm:p-8">
               <p className="text-sm uppercase tracking-[0.2em] text-white/70">Zoomama</p>
               <h2 className="mt-2 text-3xl text-white sm:text-4xl">
                 Современный ветеринарный госпиталь с круглосуточной работой
@@ -37,7 +37,7 @@ function AboutClinicPage() {
                   className="rounded-xl border border-pine/10 bg-white p-5 animate-rise"
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
-                  <p className="text-base leading-7 text-ink/85 sm:text-lg">{paragraph}</p>
+                  <p className="text-base leading-7 text-ink sm:text-lg">{paragraph}</p>
                 </div>
               ))}
             </div>
@@ -55,9 +55,9 @@ function AboutClinicPage() {
                   'Отделение реанимации и интенсивной терапии',
                   'Современное хирургическое направление'
                 ].map((item) => (
-                  <div key={item} className="flex gap-3 rounded-xl border border-pine/10 bg-white p-4">
+                  <div key={item} className="flex gap-3 rounded-xl border border-pine/10 bg-sage/25 p-4">
                     <div className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-brass" />
-                    <p className="text-base leading-7 text-ink/80">{item}</p>
+                    <p className="text-base leading-7 text-ink/95">{item}</p>
                   </div>
                 ))}
               </div>
@@ -88,3 +88,5 @@ function AboutClinicPage() {
 }
 
 export default AboutClinicPage;
+
+

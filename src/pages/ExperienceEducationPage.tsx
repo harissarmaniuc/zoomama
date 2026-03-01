@@ -1,4 +1,6 @@
-﻿type TrainingItem = {
+import SiteLayout from '../layouts/SiteLayout';
+
+type TrainingItem = {
   title: string;
   details?: string[];
 };
@@ -312,127 +314,93 @@ const yearLabels = experienceYears.map((item) => item.year);
 
 function ExperienceEducationPage() {
   return (
-    <div className="min-h-screen bg-parchment">
-      <div className="border-b border-pine/10 bg-white/60 backdrop-blur">
-        <div className="container-shell flex flex-col gap-2 py-3 text-base text-pine sm:flex-row sm:items-center sm:justify-between">
-          <p className="tracking-wide">Профиль врача • Опыт и образование</p>
-          <div className="flex items-center gap-3 text-sm uppercase tracking-[0.18em] text-pine/75">
-            <span>Профиль врача</span>
-            <span className="text-brass">•</span>
-            <a href="/" className="hover:text-ink">
-              Вернуться на главную
-            </a>
+    <SiteLayout
+      activePath="/opyt-i-obrazovanie"
+      kicker="Профиль врача"
+      title="Опыт и образование"
+      subtitle="Структурированная страница для подробного резюме врача: повышение квалификации, конференции, курсы, мастер-классы и стажировки по годам."
+    >
+      <section className="bg-linen py-10 sm:py-14">
+        <div className="container-shell grid gap-6 xl:grid-cols-[1fr_320px]">
+          <div className="grid gap-6">
+            {experienceYears.map((yearBlock) => (
+              <section
+                key={yearBlock.year}
+                id={`year-${yearBlock.year}`}
+                className="panel scroll-mt-28"
+              >
+                <div className="grid lg:grid-cols-[180px_1fr]">
+                  <div className="border-b border-pine/10 bg-gradient-to-br from-pine to-moss text-white lg:rounded-l-2xl lg:border-b-0 lg:border-r lg:border-pine/10">
+                    <div className="p-6 lg:sticky lg:top-28">
+                      <p className="text-sm uppercase tracking-[0.22em] text-white/70">Год</p>
+                      <p className="mt-2 font-serifDisplay text-5xl leading-none">{yearBlock.year}</p>
+                      <p className="mt-4 text-base leading-7 text-white/85">{yearBlock.subtitle}</p>
+                    </div>
+                  </div>
+
+                  <div className="p-5 sm:p-6 lg:p-7">
+                    <div className="grid gap-4">
+                      {yearBlock.sections.map((section) => (
+                        <div
+                          key={`${yearBlock.year}-${section.heading}-${section.items[0]?.title}`}
+                          className="rounded-2xl border border-pine/10 bg-white p-4 sm:p-5"
+                        >
+                          <div className="flex items-center gap-2">
+                            <span className="h-2.5 w-2.5 rounded-full bg-brass" />
+                            <h2 className="text-2xl leading-none">{section.heading}</h2>
+                          </div>
+
+                          <div className="mt-4 grid gap-3">
+                            {section.items.map((item) => (
+                              <div key={item.title} className="rounded-xl border border-pine/10 bg-parchment/45 p-4">
+                                <p className="text-base font-semibold leading-7 text-pine">{item.title}</p>
+                                {item.details && item.details.length > 0 ? (
+                                  <div className="mt-2 grid gap-2">
+                                    {item.details.map((detail) => (
+                                      <p key={detail} className="text-base leading-7 text-ink/95">
+                                        {detail}
+                                      </p>
+                                    ))}
+                                  </div>
+                                ) : null}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </section>
+            ))}
           </div>
-        </div>
-      </div>
 
-      <header className="border-b border-pine/10 bg-parchment/90">
-        <div className="container-shell py-8 sm:py-10">
-          <a href="/" className="text-sm font-semibold uppercase tracking-[0.2em] text-pine/70 hover:text-pine">
-            ← ZooMama
-          </a>
-          <div className="mt-4 grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
-            <div>
-              <span className="section-kicker">Отдельная страница</span>
-              <h1 className="max-w-3xl text-4xl leading-tight sm:text-5xl">
-                Опыт и образование
-              </h1>
-              <p className="mt-4 max-w-2xl text-lg leading-8 text-ink/80">
-                Структурированная страница для подробного резюме врача: повышение квалификации,
-                конференции, курсы, мастер-классы и стажировки по годам.
-              </p>
-            </div>
-
+          <aside className="space-y-5 xl:sticky xl:top-28 xl:self-start">
             <div className="panel p-5 sm:p-6">
-              <p className="text-sm uppercase tracking-[0.2em] text-pine/70">Навигация по годам</p>
-              <div className="mt-4 flex flex-wrap gap-2">
+              <p className="text-sm uppercase tracking-[0.2em] text-pine/70">Выбор года</p>
+              <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3 xl:grid-cols-2">
                 {yearLabels.map((year) => (
                   <a
                     key={year}
                     href={`#year-${year}`}
-                    className="rounded-full border border-pine/15 bg-white px-3.5 py-2 text-sm font-semibold uppercase tracking-[0.16em] text-pine transition hover:bg-linen"
+                    className="rounded-full border border-pine/15 bg-white px-3.5 py-2 text-center text-sm font-semibold uppercase tracking-[0.16em] text-pine transition hover:bg-linen"
                   >
                     {year}
                   </a>
                 ))}
               </div>
-              <div className="mt-5 rounded-xl border border-brass/20 bg-linen/50 p-4">
-                <p className="text-base leading-7 text-ink/80">
-                Страница оформлена в том же формальном стиле, что и основной сайт, и может
-                использоваться как отдельный раздел профиля врача.
+              <div className="mt-5 rounded-xl border border-brass/20 bg-linen/40 p-4">
+                <p className="text-base leading-7 text-ink/95">
+                  Правый блок закреплен при прокрутке, чтобы можно было быстро перейти к нужному году.
                 </p>
               </div>
             </div>
-          </div>
+          </aside>
         </div>
-      </header>
-
-      <main className="py-10 sm:py-14">
-        <div className="container-shell grid gap-6">
-          {experienceYears.map((yearBlock, index) => (
-            <section
-              key={yearBlock.year}
-              id={`year-${yearBlock.year}`}
-              className="panel overflow-hidden animate-rise"
-              style={{ animationDelay: `${index * 40}ms` }}
-            >
-              <div className="grid lg:grid-cols-[180px_1fr]">
-                <div className="border-b border-pine/10 bg-gradient-to-br from-pine to-moss p-6 text-white lg:border-b-0 lg:border-r">
-                  <p className="text-sm uppercase tracking-[0.22em] text-white/70">Год</p>
-                  <p className="mt-2 font-serifDisplay text-5xl leading-none">{yearBlock.year}</p>
-                  <p className="mt-4 text-base leading-7 text-white/85">{yearBlock.subtitle}</p>
-                </div>
-
-                <div className="p-5 sm:p-6 lg:p-7">
-                  <div className="grid gap-4">
-                    {yearBlock.sections.map((section) => (
-                      <div key={`${yearBlock.year}-${section.heading}-${section.items[0]?.title}`} className="rounded-2xl border border-pine/10 bg-white p-4 sm:p-5">
-                        <div className="flex items-center gap-2">
-                          <span className="h-2.5 w-2.5 rounded-full bg-brass" />
-                          <h2 className="text-2xl leading-none">{section.heading}</h2>
-                        </div>
-
-                        <div className="mt-4 grid gap-3">
-                          {section.items.map((item) => (
-                            <div key={item.title} className="rounded-xl border border-pine/10 bg-parchment/45 p-4">
-                              <p className="text-base leading-7 font-semibold text-pine">{item.title}</p>
-                              {item.details && item.details.length > 0 ? (
-                                <div className="mt-2 grid gap-2">
-                                  {item.details.map((detail) => (
-                                    <p key={detail} className="text-base leading-7 text-ink/80">
-                                      {detail}
-                                    </p>
-                                  ))}
-                                </div>
-                              ) : null}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </section>
-          ))}
-        </div>
-      </main>
-
-      <footer className="border-t border-pine/10 bg-white/50 py-8">
-        <div className="container-shell flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <p className="font-serifDisplay text-2xl text-pine">Опыт и образование</p>
-            <p className="text-sm uppercase tracking-[0.2em] text-pine/70">
-              Отдельная страница профиля врача
-            </p>
-          </div>
-          <a href="/" className="btn-secondary">
-            Вернуться на главную
-          </a>
-        </div>
-      </footer>
-    </div>
+      </section>
+    </SiteLayout>
   );
 }
 
 export default ExperienceEducationPage;
+

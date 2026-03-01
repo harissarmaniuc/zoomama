@@ -150,6 +150,30 @@ export const importantNotes = [
   'Цены на сайте показаны как ориентировочные примеры по категориям услуг.'
 ] as const;
 
+export const importantNotesRo = [
+  'Клиника не работает с инфекционными заболеваниями: пациенты с подозрением на вирусные инфекции (парвовирусный энтерит, панлейкопения, калицивироз и т.д.) не госпитализируются.',
+  'Клиника не принимает птиц: диагностика, лечение и хирургические вмешательства для птиц не выполняются.'
+] as const;
+
+export const animalTypes = [
+  {
+    name: 'Кошки',
+    description: 'Профилактика, хирургия, терапия, лабораторные исследования'
+  },
+  {
+    name: 'Собаки',
+    description: 'Профилактика, хирургия, терапия, лабораторные исследования'
+  },
+  {
+    name: 'Грызуны',
+    description: 'Вакцинация, стоматология, терапия, стерилизация или кастрация, терапия, лабораторные исследования'
+  },
+  {
+    name: 'Амфибии и земноводные',
+    description: 'Консультации и терапия'
+  }
+] as const;
+
 export const locationInfo = [
   'Кишинев, Буюканы, 2051',
   'ул. А. Маринеску 11/3 (угол с ул. И. Л. Караджале)',
@@ -157,9 +181,9 @@ export const locationInfo = [
 ] as const;
 
 export const socialLinks = [
-  { label: 'Instagram', href: 'https://instagram.com/zoomama_md?igshid=MmJiY2I4NDBkZg==' },
-  { label: 'Facebook', href: 'https://www.facebook.com/vetzoomama/' },
-  { label: 'Telegram', href: 'https://t.me/zoomama_chisinau' },
-  { label: 'WhatsApp', href: 'https://wa.me/37368178419' },
-  { label: 'E-mail', href: 'mailto:doctor_tsvent@mail.ru' }
+  { label: 'Instagram', href: 'https://instagram.com/zoomama_md?igshid=MmJiY2I4NDBkZg==', icon: 'fab fa-instagram' },
+  { label: 'Facebook', href: 'https://www.facebook.com/vetzoomama/', icon: 'fab fa-facebook-f' },
+  { label: 'Telegram', href: 'https://t.me/zoomama_chisinau', icon: 'fab fa-telegram-plane' },
+  { label: 'WhatsApp', href: 'https://wa.me/37368178419', icon: 'fab fa-whatsapp' },
+  { label: 'E-mail', href: 'mailto:doctor_tsvent@mail.ru', icon: 'fas fa-envelope' }
 ] as const;

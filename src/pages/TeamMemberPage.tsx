@@ -5,11 +5,17 @@ type TeamMemberPageProps = {
   slug: string;
 };
 
+const emojiPattern = /[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}]/gu;
+
 function splitLines(text: string) {
   return text
     .split('\n')
     .map((line) => line.trim())
     .filter(Boolean);
+}
+
+function stripEmojis(text: string) {
+  return text.replace(emojiPattern, '').replace(/\s{2,}/g, ' ').trim();
 }
 
 function initials(name: string) {
@@ -22,14 +28,15 @@ function initials(name: string) {
 }
 
 function renderLine(line: string, index: number) {
+  const cleanLine = stripEmojis(line);
   const isBullet =
     line.startsWith('•') || line.startsWith('✔') || line.startsWith('🔹') || line.startsWith('📍') || line.startsWith('⚕') || line.startsWith('🏥') || line.startsWith('🔬') || line.startsWith('🛠');
-  const isHeading = !isBullet && (line.endsWith(':') || line.length < 50) && !line.includes(' - ');
+  const isHeading = !isBullet && (cleanLine.endsWith(':') || cleanLine.length < 50) && !cleanLine.includes(' - ');
 
   if (isHeading) {
     return (
       <h3 key={`${index}-${line}`} className="pt-2 text-xl leading-tight text-pine">
-        {line}
+        {cleanLine}
       </h3>
     );
   }
@@ -38,14 +45,14 @@ function renderLine(line: string, index: number) {
     return (
       <div key={`${index}-${line}`} className="flex gap-3 rounded-xl border border-pine/10 bg-white p-4">
         <div className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-brass" />
-        <p className="whitespace-pre-line text-base leading-7 text-ink/85">{line}</p>
+        <p className="whitespace-pre-line text-base leading-7 text-ink">{cleanLine}</p>
       </div>
     );
   }
 
   return (
-    <p key={`${index}-${line}`} className="whitespace-pre-line text-base leading-8 text-ink/80">
-      {line}
+    <p key={`${index}-${line}`} className="whitespace-pre-line text-base leading-8 text-ink/95">
+      {cleanLine}
     </p>
   );
 }
@@ -64,7 +71,7 @@ function TeamMemberPage({ slug }: TeamMemberPageProps) {
         <section className="bg-linen py-12 sm:py-16">
           <div className="container-shell">
             <div className="rounded-2xl border border-pine/10 bg-white p-6">
-              <p className="text-base leading-7 text-ink/80">
+              <p className="text-base leading-7 text-ink/95">
                 Проверьте ссылку или откройте общий раздел команды.
               </p>
               <div className="mt-4">
@@ -117,7 +124,7 @@ function TeamMemberPage({ slug }: TeamMemberPageProps) {
                 <span className="rounded-full border border-pine/15 bg-parchment px-3.5 py-1.5 text-sm font-semibold uppercase tracking-[0.14em] text-pine">
                   {profile.category}
                 </span>
-                <span className="rounded-full border border-pine/10 bg-white px-3.5 py-1.5 text-sm font-semibold uppercase tracking-[0.14em] text-ink/70">
+                <span className="rounded-full border border-pine/10 bg-white px-3.5 py-1.5 text-sm font-semibold uppercase tracking-[0.14em] text-ink/95">
                   {profile.col === 't-col_3' ? 'Экспертный профиль' : 'Профиль команды'}
                 </span>
               </div>
@@ -148,7 +155,7 @@ function TeamMemberPage({ slug }: TeamMemberPageProps) {
               {related.length > 0 ? (
                 <div className="mt-4">
                   <p className="text-sm uppercase tracking-[0.18em] text-pine/70">Категория</p>
-                  <p className="mt-2 text-base leading-7 text-ink/75">{related.join(', ')}</p>
+                  <p className="mt-2 text-base leading-7 text-ink/90">{related.join(', ')}</p>
                 </div>
               ) : null}
             </div>
@@ -160,7 +167,7 @@ function TeamMemberPage({ slug }: TeamMemberPageProps) {
               {lines.length > 0 ? (
                 <div className="mt-4 space-y-3">{lines.map((line, index) => renderLine(line, index))}</div>
               ) : (
-                <p className="mt-4 text-base leading-8 text-ink/75">
+                <p className="mt-4 text-base leading-8 text-ink/90">
                   Для этого профиля на странице команды опубликованы имя и должность без расширенного описания.
                 </p>
               )}
@@ -168,7 +175,7 @@ function TeamMemberPage({ slug }: TeamMemberPageProps) {
 
             <div className="rounded-2xl border border-pine/10 bg-white p-6 sm:p-8">
               <p className="text-sm uppercase tracking-[0.2em] text-pine/70">Примечание</p>
-              <p className="mt-4 text-base leading-8 text-ink/75">
+              <p className="mt-4 text-base leading-8 text-ink/90">
                 Информация на странице сформирована на основе опубликованного раздела команды
                 Zoomama и предназначена для структурированного отображения профилей на сайте.
               </p>
@@ -181,3 +188,5 @@ function TeamMemberPage({ slug }: TeamMemberPageProps) {
 }
 
 export default TeamMemberPage;
+
+

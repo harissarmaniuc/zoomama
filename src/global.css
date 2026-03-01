@@ -9,9 +9,11 @@
 
   body {
     @apply bg-parchment text-ink font-body antialiased text-base;
+    font-weight: 500;
     background-image:
-      radial-gradient(circle at 20% 15%, rgba(45, 122, 111, 0.04) 0, transparent 50%),
-      radial-gradient(circle at 82% 12%, rgba(61, 144, 133, 0.03) 0, transparent 45%);
+      radial-gradient(circle at 20% 10%, rgba(45, 122, 111, 0.10) 0, transparent 50%),
+      radial-gradient(circle at 85% 8%, rgba(61, 144, 133, 0.07) 0, transparent 40%),
+      radial-gradient(circle at 50% 60%, rgba(176, 124, 46, 0.05) 0, transparent 55%);
   }
 
   h1,
@@ -21,7 +23,7 @@
   }
 
   ::selection {
-    background: rgba(45, 122, 111, 0.18);
+    background: rgba(45, 122, 111, 0.22);
     color: #2d3748;
   }
 }
@@ -32,23 +34,35 @@
   }
 
   .section-kicker {
-    @apply mb-3 inline-flex items-center gap-2 rounded-full border border-pine/20 bg-sage/40 px-3.5 py-1.5 text-sm font-semibold uppercase tracking-[0.2em] text-pine;
+    @apply mb-3 inline-flex items-center gap-2 rounded-full border border-pine/25 bg-sage/60 px-3.5 py-1.5 text-sm font-semibold uppercase tracking-[0.2em] text-pine;
   }
 
   .ornament-line {
-    @apply relative h-px bg-gradient-to-r from-transparent via-pine/25 to-transparent;
+    @apply relative h-px bg-gradient-to-r from-transparent via-pine/30 to-transparent;
   }
 
   .panel {
-    @apply rounded-2xl border border-pine/10 bg-white/80 shadow-panel backdrop-blur-sm;
+    @apply rounded-2xl border border-pine/10 bg-white shadow-panel backdrop-blur-sm;
+  }
+
+  .section-tinted {
+    @apply bg-sage/40;
+  }
+
+  .section-warm {
+    @apply bg-gradient-to-b from-cream to-parchment;
+  }
+
+  .section-dark {
+    @apply bg-gradient-to-br from-forest via-pine to-moss text-white;
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-full border border-pine bg-pine px-6 py-3 text-base font-semibold text-white transition hover:bg-moss focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine focus-visible:ring-offset-2;
+    @apply inline-flex items-center justify-center rounded-full border border-pine bg-pine px-6 py-3 text-base font-semibold text-white transition hover:bg-forest focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine focus-visible:ring-offset-2;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-full border border-pine/20 bg-white/80 px-6 py-3 text-base font-semibold text-pine transition hover:bg-sage/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine focus-visible:ring-offset-2;
+    @apply inline-flex items-center justify-center rounded-full border border-pine/20 bg-cream px-6 py-3 text-base font-semibold text-pine transition hover:bg-sage/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pine focus-visible:ring-offset-2;
   }
 }
 

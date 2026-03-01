@@ -7,10 +7,16 @@ import {
   type TeamProfileRecord,
 } from '../utils/teamProfiles';
 
+const emojiPattern = /[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}]/gu;
+
+function stripEmojis(text: string) {
+  return text.replace(emojiPattern, '').replace(/\s{2,}/g, ' ').trim();
+}
+
 function splitLines(text: string) {
   return text
     .split('\n')
-    .map((line) => line.trim())
+    .map((line) => stripEmojis(line.trim()))
     .filter(Boolean);
 }
 
@@ -68,7 +74,7 @@ function FeaturedCard({ profile }: { profile: TeamProfileRecord }) {
             <p className="mt-2 text-base font-semibold text-pine">{profile.role}</p>
           </div>
           {preview.length > 0 ? (
-            <div className="mt-4 border-t border-pine/10 pt-4 text-base leading-7 text-ink/75">
+            <div className="mt-4 border-t border-pine/10 pt-4 text-base leading-7 text-ink/90">
               {preview.map((line) => (
                 <p key={line}>{line}</p>
               ))}
@@ -108,21 +114,21 @@ function DetailedProfileCard({ profile }: { profile: TeamProfileRecord }) {
             <details className="group">
               <summary className="cursor-pointer list-none text-base font-semibold text-pine">
                 Подробнее о специализации
-                <span className="ml-2 text-sm font-normal text-ink/60 group-open:hidden">
+                <span className="ml-2 text-sm font-normal text-ink/70 group-open:hidden">
                   (показать)
                 </span>
-                <span className="ml-2 hidden text-sm font-normal text-ink/60 group-open:inline">
+                <span className="ml-2 hidden text-sm font-normal text-ink/70 group-open:inline">
                   (скрыть)
                 </span>
               </summary>
-              <div className="mt-4 space-y-2 text-base leading-7 text-ink/80">
+              <div className="mt-4 space-y-2 text-base leading-7 text-ink/95">
                 {lines.map((line) => (
                   <p key={`${profile.name}-${line}`}>{line}</p>
                 ))}
               </div>
             </details>
           ) : (
-            <div className="space-y-2 text-base leading-7 text-ink/80">
+            <div className="space-y-2 text-base leading-7 text-ink/95">
               {lines.map((line) => (
                 <p key={`${profile.name}-${line}`}>{line}</p>
               ))}
@@ -139,9 +145,9 @@ function DirectoryCard({ profile }: { profile: TeamProfileRecord }) {
     <ProfileLink profile={profile}>
       <article className="rounded-2xl border border-pine/10 bg-white px-4 py-5 text-center shadow-panel transition hover:-translate-y-0.5 hover:shadow-lg">
         <h3 className="text-xl leading-tight">{profile.name}</h3>
-        <p className="mt-2 whitespace-pre-line text-base leading-7 text-ink/75">{profile.role}</p>
+        <p className="mt-2 whitespace-pre-line text-base leading-7 text-ink/90">{profile.role}</p>
         {profile.text ? (
-          <p className="mt-3 whitespace-pre-line text-base leading-7 text-ink/70">{profile.text}</p>
+          <p className="mt-3 whitespace-pre-line text-base leading-7 text-ink/95">{stripEmojis(profile.text)}</p>
         ) : null}
       </article>
     </ProfileLink>
@@ -180,7 +186,7 @@ function TeamPage() {
               Наши специалисты
             </p>
             <h2 className="mt-3 text-4xl sm:text-5xl">Знакомьтесь с командой</h2>
-            <p className="mt-4 text-lg leading-8 text-ink/75">
+            <p className="mt-4 text-lg leading-8 text-ink/90">
               Профили построены на реальных публикациях раздела команды: ведущие специалисты,
               врачи отделений, ассистенты, ординаторы и административный персонал.
             </p>
@@ -195,6 +201,7 @@ function TeamPage() {
                 value={search}
                 onChange={(event) => setSearch(event.target.value)}
                 type="search"
+                maxLength={200}
                 placeholder="Имя, должность, специализация..."
                 className="w-full rounded-xl border border-pine/15 bg-white px-4 py-3 text-base outline-none placeholder:text-ink/35 focus:border-pine/35"
               />
@@ -221,7 +228,7 @@ function TeamPage() {
                   </button>
                 ))}
               </div>
-              <p className="mt-3 text-base text-ink/65">Найдено профилей: {filtered.length}</p>
+              <p className="mt-3 text-base text-ink/75">Найдено профилей: {filtered.length}</p>
             </div>
           </div>
 
@@ -244,7 +251,7 @@ function TeamPage() {
               </p>
               <h2 className="mt-2 text-3xl sm:text-4xl">Специалисты и направления</h2>
             </div>
-            <p className="max-w-xl text-base leading-7 text-ink/70">
+            <p className="max-w-xl text-base leading-7 text-ink/95">
               Нажмите на карточку, чтобы открыть отдельную страницу специалиста.
             </p>
           </div>
@@ -256,7 +263,7 @@ function TeamPage() {
               ))}
             </div>
           ) : (
-            <div className="rounded-2xl border border-pine/10 bg-white p-6 text-base text-ink/70">
+            <div className="rounded-2xl border border-pine/10 bg-white p-6 text-base text-ink/95">
               По текущим параметрам фильтра ничего не найдено.
             </div>
           )}
@@ -279,7 +286,7 @@ function TeamPage() {
               ))}
             </div>
           ) : (
-            <div className="rounded-2xl border border-pine/10 bg-white p-6 text-base text-ink/70">
+            <div className="rounded-2xl border border-pine/10 bg-white p-6 text-base text-ink/95">
               В этой категории нет карточек по текущему поиску.
             </div>
           )}
@@ -290,3 +297,5 @@ function TeamPage() {
 }
 
 export default TeamPage;
+
+

@@ -1,14 +1,19 @@
 import AboutClinicPage from '../pages/AboutClinicPage';
 import ExperienceEducationPage from '../pages/ExperienceEducationPage';
 import ContactPage from '../pages/ContactPage';
+import NotFoundPage from '../pages/NotFoundPage';
 import OverviewPage from '../pages/OverviewPage';
 import PricingPage from '../pages/PricingPage';
 import TeamMemberPage from '../pages/TeamMemberPage';
 import ServicesPage from '../pages/ServicesPage';
 import TeamPage from '../pages/TeamPage';
 
-function AppRouter() {
-  const normalizedPath = window.location.pathname.replace(/\/+$/, '') || '/';
+type AppRouterProps = {
+  pathname?: string;
+};
+
+function AppRouter({ pathname = window.location.pathname }: AppRouterProps) {
+  const normalizedPath = pathname.replace(/\/+$/, '') || '/';
 
   if (normalizedPath === '/opyt-i-obrazovanie' || normalizedPath === '/experienta-educatie') {
     return <ExperienceEducationPage />;
@@ -43,7 +48,7 @@ function AppRouter() {
     return <ContactPage />;
   }
 
-  return <OverviewPage />;
+  return <NotFoundPage />;
 }
 
 export default AppRouter;

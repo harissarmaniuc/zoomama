@@ -59,10 +59,10 @@ function PricingPage() {
       title="Прайс-лист клиники"
       subtitle="Категории, названия услуг и цены сверены по HTML-версии сайта ZooMama (секция прайса). Уточняйте актуальность перед записью."
     >
-      <section className="py-12 sm:py-16">
+      <section className="section-tinted py-12 sm:py-16">
         <div className="container-shell">
           <div className="mx-auto max-w-5xl">
-            <div className="mb-8 rounded-2xl border border-brass/20 bg-white/80 p-5 text-base leading-7 text-ink/70 shadow-sm backdrop-blur-sm sm:mb-10 sm:p-6">
+            <div className="mb-8 rounded-2xl border border-brass/25 bg-sand/60 p-5 text-base leading-7 text-ink/95 shadow-sm backdrop-blur-sm sm:mb-10 sm:p-6">
               <p>
                 Цены могут изменяться в зависимости от клинической ситуации, веса пациента, расходных
                 материалов и необходимости анестезии/стационара. Для сложных случаев стоимость
@@ -80,17 +80,23 @@ function PricingPage() {
                   <section
                     key={category.id}
                     className={[
-                      'overflow-hidden rounded-2xl border bg-white transition-all duration-200',
+                      'relative rounded-2xl border bg-cream transition-all duration-200',
                       isOpen
-                        ? 'border-pine/25 shadow-md ring-1 ring-brass/15'
-                        : 'border-pine/10 shadow-sm hover:shadow-md hover:border-pine/15'
+                        ? 'border-pine/30 shadow-md ring-1 ring-brass/20'
+                        : 'border-pine/10 shadow-sm hover:shadow-md hover:border-pine/20'
                     ].join(' ')}
                   >
-                    <h2>
+                    <h2 className={isOpen ? 'sticky top-20 z-20 rounded-t-2xl' : 'relative z-10'}>
                       <button
                         type="button"
                         aria-expanded={isOpen}
-                        className="flex w-full items-center justify-between gap-4 px-5 py-5 text-left transition hover:bg-parchment/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-pine/30 sm:px-7 sm:py-6"
+                        className={[
+                          'flex w-full items-center justify-between gap-4 px-5 py-5 text-left transition',
+                          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-pine/30 sm:px-7 sm:py-6',
+                          isOpen
+                            ? 'rounded-t-2xl border-x border-t border-pine/25 bg-white shadow-sm hover:bg-white'
+                            : 'hover:bg-parchment'
+                        ].join(' ')}
                         onClick={() => setOpenId(isOpen ? '' : category.id)}
                       >
                         <span className="min-w-0 pr-2">
@@ -98,7 +104,7 @@ function PricingPage() {
                             {compactTitle}
                           </span>
                           {fullTitle !== compactTitle ? (
-                            <span className="mt-1.5 block text-base leading-6 text-ink/50">
+                            <span className="mt-1.5 block text-base leading-6 text-ink/70">
                               {fullTitle}
                             </span>
                           ) : null}
@@ -113,7 +119,7 @@ function PricingPage() {
                               'grid h-9 w-9 place-items-center rounded-full border transition-colors duration-200',
                               isOpen
                                 ? 'border-pine/20 bg-pine text-white'
-                                : 'border-pine/10 bg-parchment/50 text-ink/60'
+                                : 'border-pine/10 bg-parchment/50 text-ink/70'
                             ].join(' ')}
                           >
                             <ChevronIcon open={isOpen} />
@@ -123,7 +129,7 @@ function PricingPage() {
                     </h2>
 
                     {isOpen ? (
-                      <div className="px-5 pb-4 sm:px-7 sm:pb-5">
+                      <div className="overflow-hidden rounded-b-2xl px-5 pb-4 sm:px-7 sm:pb-5">
                         <div className="h-px bg-gradient-to-r from-transparent via-pine/10 to-transparent" />
                         <ul className="divide-y divide-pine/[0.07]">
                           {category.rows.map((row, index) => {
@@ -134,7 +140,7 @@ function PricingPage() {
                                 key={`${category.id}-${index}-${row.text}`}
                                 className="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center sm:gap-8 sm:py-[1.15rem]"
                               >
-                                <span className="min-w-0 text-base leading-7 text-ink/85 sm:text-lg">
+                                <span className="min-w-0 text-base leading-7 text-ink sm:text-lg">
                                   {row.text}
                                 </span>
 
@@ -143,7 +149,7 @@ function PricingPage() {
                                     {priceParts.main}
                                   </span>
                                   {priceParts.detail ? (
-                                    <span className="mt-0.5 block max-w-[20rem] text-sm leading-5 text-ink/50 sm:ml-auto">
+                                    <span className="mt-0.5 block max-w-[20rem] text-sm leading-5 text-ink/70 sm:ml-auto">
                                       {priceParts.detail}
                                     </span>
                                   ) : null}
@@ -166,3 +172,5 @@ function PricingPage() {
 }
 
 export default PricingPage;
+
+
